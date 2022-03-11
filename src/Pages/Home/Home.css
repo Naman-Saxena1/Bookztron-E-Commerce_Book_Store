@@ -1,0 +1,83 @@
+.home-component-container
+{
+    background-color: white;
+}
+
+.home-page-img-container
+{
+    position: relative;
+    width: 100%;
+    height: 61.4rem;
+}
+
+.home-page-background-img
+{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.homepage-headings
+{
+    margin-top: 6rem;
+    margin-bottom: 0;
+    background-color: white;
+}
+
+.genre-cards-container
+{
+    height: fit-content;
+    padding: 4rem 9rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 19rem);
+    gap: 5px;
+    justify-content: center;
+    justify-items: center;
+    background-color: white;
+}
+
+.homepage-explore-all-btn
+{
+    color: white;
+    background-color: #ca0e1d;
+}
+
+.homepage-explore-all-btn 
+{
+    background-position: center;
+    transition: background 0.5s;
+}
+
+.homepage-explore-all-btn:hover 
+{
+    background: #ca0e1d
+                radial-gradient(circle, transparent 1%, 
+                                    #ca0e1d 1%) center/15000%;
+}
+
+.homepage-explore-all-btn:active 
+{
+    background-color: #ca0e1d;
+    background-size: 100%;
+    transition: background 0s;
+}
+
+/* .homepage-explore-all-btn:hover
+{
+    color: black;
+    border-color: black;
+    background-color: white;
+} */
+
+.new-arrivals-container
+{
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,30rem);
+    background-color: white;
+    gap: 1rem;
+    padding: 4rem;
+    justify-content: center;
+    justify-items: center;
+}

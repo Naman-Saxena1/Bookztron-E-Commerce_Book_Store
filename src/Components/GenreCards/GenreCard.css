@@ -1,0 +1,31 @@
+.genre-card
+{
+    width: 16rem;
+    height: 16rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: var(--sky-blue);
+    /* background-color: burlywood; */
+    cursor: pointer;
+    box-shadow: 0 0 1px rgb(48 48 48 / 54%);
+    border-radius: 4px;
+}
+
+.genre-card:hover 
+{
+    box-shadow: 0 0 25px 6px var(--offline-grey-color);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+.genre-card:not(:hover)
+{
+    transition: .5s ease-in-out;
+}
+
+.genre-card p
+{
+    font-size: 2.2rem;
+}
