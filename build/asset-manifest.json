@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.95206e12.css",
+    "main.css": "/static/css/main.bf928928.css",
     "main.js": "/static/js/main.3364144e.js",
     "static/media/Library_Illustration_1.jpg": "/static/media/Library_Illustration_1.c54dafea582d6757c53e.jpg",
     "static/media/Eloquent_JavaScript.jpg": "/static/media/Eloquent_JavaScript.5786291afff0441fa00c.jpg",
@@ -19,11 +19,11 @@
     "static/media/50_Shades_Of_Grey.jpg": "/static/media/50_Shades_Of_Grey.eb3d0f619cd46865d648.jpg",
     "static/media/The_Fault_in_Our_Stars.jpg": "/static/media/The_Fault_in_Our_Stars.3e96852104b482635ca9.jpg",
     "index.html": "/index.html",
-    "main.95206e12.css.map": "/static/css/main.95206e12.css.map",
+    "main.bf928928.css.map": "/static/css/main.bf928928.css.map",
     "main.3364144e.js.map": "/static/js/main.3364144e.js.map"
   },
   "entrypoints": [
-    "static/css/main.95206e12.css",
+    "static/css/main.bf928928.css",
     "static/js/main.3364144e.js"
   ]
 }
