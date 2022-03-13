@@ -531,36 +531,38 @@ function productsOrderFunc(state,action)
     {
         case "PRICE_HIGH_TO_LOW" : 
             {
-                for(let i=0; i<state.length-1; i++)
-                {
-                    for(let j=0; j<state.length-1-i; j++)
-                    {
-                        if(state[j].discountedprice < state[j+1].discountedprice && i+1<state.length)
-                        {
-                            let swappedNum = state[j];
-                            state[j] = state[j+1];
-                            state[j+1] = swappedNum
-                        }
-                    }
-                }
-                return [...state]
+                // for(let i=0; i<state.length-1; i++)
+                // {
+                //     for(let j=0; j<state.length-1-i; j++)
+                //     {
+                //         if(state[j].discountedprice < state[j+1].discountedprice && i+1<state.length)
+                //         {
+                //             let swappedNum = state[j];
+                //             state[j] = state[j+1];
+                //             state[j+1] = swappedNum
+                //         }
+                //     }
+                // }
+                // return [...state]
+                return [...state].sort((a,b)=>b.discountedprice-a.discountedprice)
             }
 
         case "PRICE_LOW_TO_HIGH" : 
             {
-                for(let i=0; i<state.length-1; i++)
-                {
-                    for(let j=0; j<state.length-1-i; j++)
-                    {
-                        if(state[j].discountedprice > state[j+1].discountedprice && i+1<state.length)
-                        {
-                            let swappedNum = state[j];
-                            state[j] = state[j+1];
-                            state[j+1] = swappedNum
-                        }
-                    }
-                }
-                return [...state]
+                // for(let i=0; i<state.length-1; i++)
+                // {
+                //     for(let j=0; j<state.length-1-i; j++)
+                //     {
+                //         if(state[j].discountedprice > state[j+1].discountedprice && i+1<state.length)
+                //         {
+                //             let swappedNum = state[j];
+                //             state[j] = state[j+1];
+                //             state[j+1] = swappedNum
+                //         }
+                //     }
+                // }
+                // return [...state]
+                return [...state].sort((a,b)=>a.discountedprice-b.discountedprice)
             }
 
         case "UPDATE_LIST_AS_PER_FILTERS" : 

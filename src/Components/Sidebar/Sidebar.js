@@ -27,6 +27,9 @@ function Sidebar() {
   } = useGenre()
 
   const ratingRadioBtnRef = useRef(null)
+
+  const [sortPriceLowToHigh, setSortPriceLowToHigh ] = useState(false)
+  const [sortPriceHighToLow, setSortPriceHighToLow ] = useState(false)
   
   const [includeOutOfStockCheckbox, setIncludeOutOfStockCheckbox] = useState(true);
   const [fastDeliveryOnlyCheckbox, setFastDeliveryOnlyCheckbox] = useState(false);
@@ -42,7 +45,7 @@ function Sidebar() {
   function clearFilters()
   {
     setMinPriceRange(0)
-    setMaxPriceRange(1000)
+    setMaxPriceRange(1200)
     setFictionCategoryCheckbox(true)
     setThrillerCategoryCheckbox(true)
     setTechCategoryCheckbox(true)
@@ -50,6 +53,8 @@ function Sidebar() {
     setRomanceCategoryCheckbox(true)
     setMangaCategoryCheckbox(true)
     ratingRadioBtnRef.current.click()
+    setSortPriceLowToHigh(false) 
+    setSortPriceHighToLow(false)
     setIncludeOutOfStockCheckbox(true)
     setFastDeliveryOnlyCheckbox(false)
     dispatchProductFilterOptions({type:"RESET_DEFAULT_FILTERS"})
@@ -264,22 +269,24 @@ function Sidebar() {
 
         <div className="sortby-items">
           <input
-            onChange={() => dispatchSortedProductsList({type:"PRICE_LOW_TO_HIGH"})}
+            onChange={() => { setSortPriceLowToHigh(true); setSortPriceHighToLow(false); dispatchSortedProductsList({type:"PRICE_LOW_TO_HIGH"}) } }
             type="radio"
             id="price-low-to-high"
             name="sort-by"
             value="price-low-to-high"
+            checked={sortPriceLowToHigh}
           />
           <label htmlFor="price-low-to-high">Price - Low to High</label>
         </div>
 
         <div className="sortby-items">
           <input
-            onChange={() => dispatchSortedProductsList({type:"PRICE_HIGH_TO_LOW"})}
+            onChange={() => {setSortPriceLowToHigh(false); setSortPriceHighToLow(true); dispatchSortedProductsList({type:"PRICE_HIGH_TO_LOW"}) } }
             type="radio"
             id="price-high-to-low"
             name="sort-by"
             value="price-high-to-low"
+            checked={sortPriceHighToLow}
           />
           <label htmlFor="price-high-to-low">Price - High to Low</label>
         </div>

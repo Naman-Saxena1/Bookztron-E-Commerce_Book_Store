@@ -8,7 +8,7 @@ function Navbar() {
         <div className="left-topbar-container">
             {/* <button id="top-bar-ham-menu-btn" className="icon-btn"><i className="fa fa-bars" aria-hidden="true"></i></button> */}
             <Link to="/">
-                <h2 id="top-bar-brand-name">Bookztron</h2>
+                <h2 className="top-bar-brand-name">Bookztron</h2>
             </Link>
             <div className="search-bar">
                 <input className="search-bar-input" placeholder="Search"/>
@@ -18,7 +18,7 @@ function Navbar() {
             </div>
         </div>
         <div className="right-topbar-container">
-            <button id="navbar-login-btn" className="solid-primary-btn">Login</button>
+            <button className="navbar-login-btn solid-primary-btn">Login</button>
             <button id="my-wishlist-btn" className="icon-btn">
                 <div className="icon-count-badge">
                     <i className="fa fa-heart-o fa-x" aria-hidden="true" ></i>

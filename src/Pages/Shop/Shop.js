@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
-import "./Shop.css"
-import { Navbar } from '../../Components/Navbar/Navbar'
-import { Sidebar } from '../../Components/Sidebar/Sidebar'
-import { useProductAvailable } from "../../Context/product-context"
-import { ProductCard } from "../../Components/Card/ProductCard"
 import { useLocation } from "react-router-dom"
+import "./Shop.css"
+import { 
+  Navbar, 
+  Sidebar, 
+  ProductCard
+} from "../../index.js"
+import { useProductAvailable } from "../../Context/product-context"
 
 function Shop(props) {
 

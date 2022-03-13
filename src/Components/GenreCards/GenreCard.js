@@ -3,7 +3,7 @@ import './GenreCard.css'
 import { useProductAvailable } from "../../Context/product-context"
 import { useGenre } from '../../Context/genre-context'
 
-function GenreCard(props) {
+function GenreCard({ genretype }) {
 
   const {
     setFictionCategoryCheckbox,
@@ -14,7 +14,6 @@ function GenreCard(props) {
     setMangaCategoryCheckbox, 
   } = useGenre()
 
-  const { genretype } = props
   const { dispatchProductFilterOptions } = useProductAvailable()
 
   function selectOnlyThatFilter()
@@ -94,7 +93,7 @@ function GenreCard(props) {
 
   return (
     <div onClick={selectOnlyThatFilter} className='genre-card'>
-        <p>{props.genretype}</p>
+        <p>{genretype}</p>
     </div>
   )
 }

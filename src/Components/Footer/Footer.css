@@ -9,7 +9,7 @@
     align-items: flex-start;
     grid-template-columns: repeat(3, 1fr);
     color: white;
-    background-color: #282c34;
+    background-color: var(--dark-grey-2);
 }
 
 .footer-list

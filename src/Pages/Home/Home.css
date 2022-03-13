@@ -1,6 +1,6 @@
 .home-component-container
 {
-    background-color: white;
+    background-color: var(--pure-white);
 }
 
 .home-page-img-container
@@ -21,7 +21,7 @@
 {
     margin-top: 6rem;
     margin-bottom: 0;
-    background-color: white;
+    background-color: var(--pure-white);
 }
 
 .genre-cards-container
@@ -33,13 +33,13 @@
     gap: 5px;
     justify-content: center;
     justify-items: center;
-    background-color: white;
+    background-color: var(--pure-white);
 }
 
 .homepage-explore-all-btn
 {
-    color: white;
-    background-color: #ca0e1d;
+    color: var(--pure-white);
+    background-color: var(--red-color);
 }
 
 .homepage-explore-all-btn 
@@ -50,24 +50,17 @@
 
 .homepage-explore-all-btn:hover 
 {
-    background: #ca0e1d
+    background: var(--red-color)
                 radial-gradient(circle, transparent 1%, 
-                                    #ca0e1d 1%) center/15000%;
+                                    var(--red-color) 1%) center/15000%;
 }
 
 .homepage-explore-all-btn:active 
 {
-    background-color: #ca0e1d;
+    background-color: var(--red-color);
     background-size: 100%;
     transition: background 0s;
 }
-
-/* .homepage-explore-all-btn:hover
-{
-    color: black;
-    border-color: black;
-    background-color: white;
-} */
 
 .new-arrivals-container
 {
@@ -75,7 +68,7 @@
     height: fit-content;
     display: grid;
     grid-template-columns: repeat(auto-fit,30rem);
-    background-color: white;
+    background-color: var(--pure-white);
     gap: 1rem;
     padding: 4rem;
     justify-content: center;

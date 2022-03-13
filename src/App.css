@@ -4,9 +4,12 @@
 :root
 {
     --dark-grey     : #2F4858;
+    --dark-grey-2   : #282c34;
     --royal-blue    : #29517C;
     --sky-blue      : #0e7490;
     --bluish-white  : #F5F7F9;
+    --pure-white    : white;
+    --red-color     : #ca0e1d;
     --background-color-dull-yellow: #e0e0d4;
     --yellow-background-color     : #efe6e1;
 }

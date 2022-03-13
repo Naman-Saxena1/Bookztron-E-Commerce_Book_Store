@@ -1,15 +1,17 @@
 import React,{ useEffect } from 'react'
-import { Navbar } from "../../Components/Navbar/Navbar"
-import { GenreCard } from '../../Components/GenreCards/GenreCard'
+import { Link } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import LibraryIllustration from "../..//Assets/Images/Library_Illustration_1.jpg"
 import './Home.css'
-import { newArrivalsProductList } from "../../Components/NewArrivals/new-arrivals"
-import { ProductCard } from "../../Components/Card/ProductCard"
-import { Footer } from "../../Components/Footer/Footer"
-import { Link } from "react-router-dom"
+import { 
+  Navbar, 
+  GenreCard, 
+  newArrivalsProductList,
+  ProductCard,
+  Footer 
+} from "../../index.js"
 import { useProductAvailable } from "../../Context/product-context"
 import { useGenre } from "../../Context/genre-context"
-import { useLocation } from "react-router-dom"
 
 function Home() {
   const { dispatchProductFilterOptions } = useProductAvailable()

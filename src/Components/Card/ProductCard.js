@@ -25,7 +25,7 @@ export default function ProductCard(props)
                 {
                     outOfStock && (
                         <div className="card-text-overlay-container">
-                                <div>Out of Stock</div>
+                                <p>Out of Stock</p>
                         </div>
                     )
                 }

@@ -8,7 +8,7 @@
     border-bottom: 1px solid var(--background-color);
 }
 
-@media screen and (max-width:1305px){
+@media only screen and (max-width:1305px){
     .top-bar
     {
         flex-direction: row;
@@ -16,7 +16,7 @@
     }
 }
 
-@media screen and (max-width:1015px){
+@media only screen and (max-width:1015px){
     .top-bar
     {
         flex-direction: column;
@@ -24,7 +24,7 @@
     }
 }
 
-#top-bar-brand-name
+.top-bar-brand-name
 {
     cursor: pointer;
     margin-right: 3rem;
@@ -58,7 +58,7 @@
     background-color: var(--sky-blue);
 }
 
-#navbar-login-btn
+.solid-primary-btn.navbar-login-btn
 {
     background-color: var(--pink-color);
     transition: none;
