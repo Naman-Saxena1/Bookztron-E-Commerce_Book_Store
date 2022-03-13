@@ -1,0 +1,76 @@
+.home-component-container
+{
+    background-color: var(--pure-white);
+}
+
+.home-page-img-container
+{
+    position: relative;
+    width: 100%;
+    height: 61.4rem;
+}
+
+.home-page-background-img
+{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.homepage-headings
+{
+    margin-top: 6rem;
+    margin-bottom: 0;
+    background-color: var(--pure-white);
+}
+
+.genre-cards-container
+{
+    height: fit-content;
+    padding: 4rem 9rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 19rem);
+    gap: 5px;
+    justify-content: center;
+    justify-items: center;
+    background-color: var(--pure-white);
+}
+
+.homepage-explore-all-btn
+{
+    color: var(--pure-white);
+    background-color: var(--red-color);
+}
+
+.homepage-explore-all-btn 
+{
+    background-position: center;
+    transition: background 0.5s;
+}
+
+.homepage-explore-all-btn:hover 
+{
+    background: var(--red-color)
+                radial-gradient(circle, transparent 1%, 
+                                    var(--red-color) 1%) center/15000%;
+}
+
+.homepage-explore-all-btn:active 
+{
+    background-color: var(--red-color);
+    background-size: 100%;
+    transition: background 0s;
+}
+
+.new-arrivals-container
+{
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,30rem);
+    background-color: var(--pure-white);
+    gap: 1rem;
+    padding: 4rem;
+    justify-content: center;
+    justify-items: center;
+}

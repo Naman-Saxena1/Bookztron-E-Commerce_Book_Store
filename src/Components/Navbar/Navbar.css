@@ -1,0 +1,79 @@
+.top-bar
+{
+    z-index: 10;
+    border: none;
+    background-color: white;
+    padding: 2rem 4rem;
+    color: var(--background-color);
+    border-bottom: 1px solid var(--background-color);
+}
+
+@media only screen and (max-width:1305px){
+    .top-bar
+    {
+        flex-direction: row;
+        gap: 1rem;
+    }
+}
+
+@media only screen and (max-width:1015px){
+    .top-bar
+    {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+.top-bar-brand-name
+{
+    cursor: pointer;
+    margin-right: 3rem;
+    color: var(--royal-blue);
+}
+
+.search-bar
+{
+    border: 1px solid var(--royal-blue);
+}
+
+.search-bar:active
+{
+    border: 1px solid var(--royal-blue);
+}
+
+.search-bar-input
+{
+    outline: none;
+    font-family: inherit;
+}
+
+#search-bar-btn
+{
+    border: none;
+    padding: 9.6px 9.6px 10px 9.6px;
+}
+
+.top-bar button
+{
+    background-color: var(--sky-blue);
+}
+
+.solid-primary-btn.navbar-login-btn
+{
+    background-color: var(--pink-color);
+    transition: none;
+}
+
+.top-bar button:hover
+{
+    background: var(--royal-blue)
+                radial-gradient(circle, transparent 1%, 
+                rgb(54, 99, 146) 1%) center/15000%;
+}
+
+.top-bar button:active 
+{
+    background-color: rgb(54, 99, 146);
+    background-size: 100%;
+    transition: background 0s;
+}

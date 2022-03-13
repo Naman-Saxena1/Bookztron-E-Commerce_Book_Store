@@ -1,0 +1,204 @@
+.product-page-sidebar
+{
+    height: 62rem;
+    position: fixed;
+    top: 10.7rem;
+    overflow-y: scroll;
+    width: fit-content;
+    max-width: 100%;
+    padding: 3rem 3rem 3rem 3rem;
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    color: black;
+    background-color: white;
+}
+
+@media only screen and (max-width:1015px){
+    .product-page-sidebar
+    {
+        top: 15.8rem;
+    }
+}
+
+.filter-clear-options
+{
+    max-width: 31.5rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sidebar-filter-option:hover, .sidebar-clear-option:hover
+{
+    cursor: pointer;
+}
+
+.text-underline
+{
+    text-decoration: underline;
+}
+
+.price-input
+{
+    display: flex;
+    align-items: center;
+}
+
+.price-input .field
+{
+    display: flex;
+    align-items: center;
+}
+
+.field span
+{
+    margin: 0 6px 0 0;
+    font-size: 1.4rem;
+}
+
+.input-min, .input-max
+{
+    width: 8rem;
+    height: 3rem;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.separator
+{
+    margin: 0 5px;
+}
+
+.slider
+{
+    height: 5px;
+    margin: 2rem auto;
+    border-radius: 5px;
+    position: relative;
+    background-color: var(--grey);
+}
+
+.slider .progress
+{
+    height: 5px;
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    border-radius: 5px;
+    background-color: #0e7490;
+}
+
+.range-input
+{
+    display: flex;
+    position: relative;
+}
+
+.range-input input
+{
+    width: 100%;
+    position: absolute;
+    bottom: 1.3rem;
+    right: -2px;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance:none;
+}
+
+input[type="range"]::-webkit-slider-thumb
+{
+    height: 1.7rem;
+    width:  1.7rem;
+    border-radius: 50%;
+    -webkit-appearance:none;
+    pointer-events: auto;
+    background: #0e7490;
+}
+
+.product-category
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 4rem;
+    gap: 5px;
+}
+
+.checkbox-item
+{
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.product-category p, .product-page-rating-radio p, .product-page-sortby-radio p
+{
+    margin-bottom: 0;
+}
+
+.product-page-rating-radio, .product-page-sortby-radio
+{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.product-page-rating-radio p, .product-page-sortby-radio p
+{
+    text-align: left;
+    margin-left: 4rem;
+}
+
+.rating-items
+{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 4rem;
+    font-size: 1.4rem;
+}
+
+.rating-items input
+{
+    margin-top: 0;
+}
+
+.sortby-items
+{
+    display: flex;
+    margin-left: 4rem;
+    gap: 5px;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.sortby-items input
+{
+    margin-top: 0;
+}
+
+.product-category , .product-page-rating-radio
+{
+    font-size: 1rem;
+}
+
+.additional-filters
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.additional-filters label
+{
+    font-size: 1.4rem;
+}
+
+.price-range-value
+{
+    color: white;
+}
