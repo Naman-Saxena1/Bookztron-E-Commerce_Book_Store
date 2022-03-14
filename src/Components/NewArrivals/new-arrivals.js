@@ -4,7 +4,7 @@ import The_Fault_In_Our_Stars from "../../Assets/Images/Book_Covers/The_Fault_in
 
 let newArrivalsProductList = [
     {
-        id : 1,
+        id : 5,
         bookname : "Harry Potter and the Deathly Hollows",
         author   : "J.K. Rowling",
         originalprice : 400,
@@ -14,10 +14,13 @@ let newArrivalsProductList = [
         imgalt : 'Book - Harry Potter Deathly Hollows',
         badgetext : 'New Arrival',
         outOfStock: false,
-        fastDeliveryAvailable : false
+        fastDeliveryAvailable : false,
+        genre: "fiction",
+        rating : 4.0, 
+        description : "Harry Potter and the Deathly Hallows is a fantasy novel written by British author J. K. Rowling and the seventh and final novel of the main Harry Potter series. It was released on 14 July 2007 in the United Kingdom by Bloomsbury Publishing, in the United States by Scholastic, and in Canada by Raincoast Books."
     },
     {
-        id : 2,
+        id : 6,
         bookname : "The Fault In Our Stars",
         author   : "John Green",
         originalprice : 200,
@@ -27,7 +30,10 @@ let newArrivalsProductList = [
         imgalt : 'Book-The_Fault_In_Our_Stars',
         badgetext : 'New Arrival',
         outOfStock: false,
-        fastDeliveryAvailable : false 
+        fastDeliveryAvailable : false,
+        genre: "romance",
+        rating : 1.0, 
+        description : "The Fault in Our Stars is a novel by John Green. It is his fourth solo novel, and sixth novel overall. It was published on January 10, 2012."  
     },
     {
         id : 3,
@@ -40,10 +46,13 @@ let newArrivalsProductList = [
         imgalt : 'Book-The Stranger',
         badgetext : 'New Arrival',
         outOfStock: false,
-        fastDeliveryAvailable : true
+        fastDeliveryAvailable : true,
+        genre: "philosophy",
+        rating : 3.0, 
+        description : "The Stranger, also published in English as The Outsider, is a 1942 novella by French author Albert Camus. Its theme and outlook are often cited as examples of Camus' philosophy, absurdism, coupled with existentialism; though Camus personally rejected the latter label." 
     },
     {
-        id : 4,
+        id : 2,
         bookname : "Attack On Titan - Volume 34",
         author   : "Hajime Isayama",
         originalprice : 1000,
@@ -53,7 +62,10 @@ let newArrivalsProductList = [
         imgalt : 'Book-Attack On Titan',
         badgetext : 'New Arrival',
         outOfStock: false,
-        fastDeliveryAvailable : true 
+        fastDeliveryAvailable : true,
+        genre: "manga",
+        rating : 3.0,
+        description: "Attack on Titan is a Japanese manga series written and illustrated by Hajime Isayama. It is set in a world where humanity lives inside cities surrounded by three enormous walls that protect them from the gigantic man-eating humanoids referred to as Titans" 
     }
 ]
 

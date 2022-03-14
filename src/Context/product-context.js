@@ -221,7 +221,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "philosophy",
-        rating : 4
+        rating : 4,
+        description: "Thus Spoke Zarathustra: A Book for All and None, also translated as Thus Spake Zarathustra, is a work of philosophical fiction written by German philosopher Friedrich Nietzsche between 1883 and 1885."
     },
     {
         id : 2,
@@ -236,7 +237,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "manga",
-        rating : 3
+        rating : 3,
+        description: "Attack on Titan is a Japanese manga series written and illustrated by Hajime Isayama. It is set in a world where humanity lives inside cities surrounded by three enormous walls that protect them from the gigantic man-eating humanoids referred to as Titans" 
     },
     {
         id : 3,
@@ -251,7 +253,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "philosophy",
-        rating : 3
+        rating : 3, 
+        description : "The Stranger, also published in English as The Outsider, is a 1942 novella by French author Albert Camus. Its theme and outlook are often cited as examples of Camus' philosophy, absurdism, coupled with existentialism; though Camus personally rejected the latter label." 
     },
     {
         id : 4,
@@ -266,7 +269,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "fiction",
-        rating : 2
+        rating : 2,
+        description: "A Dance with Dragons is the fifth novel of seven planned in the epic fantasy series A Song of Ice and Fire by American author George R. R. Martin. In some areas, the paperback edition was published in two parts, titled Dreams and Dust and After the Feast."
     },
     {
         id : 5,
@@ -281,7 +285,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "fiction",
-        rating : 4
+        rating : 4, 
+        description : "Harry Potter and the Deathly Hallows is a fantasy novel written by British author J. K. Rowling and the seventh and final novel of the main Harry Potter series. It was released on 14 July 2007 in the United Kingdom by Bloomsbury Publishing, in the United States by Scholastic, and in Canada by Raincoast Books."
     },
     {
         id : 6,
@@ -296,7 +301,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "romance",
-        rating : 1 
+        rating : 1, 
+        description : "The Fault in Our Stars is a novel by John Green. It is his fourth solo novel, and sixth novel overall. It was published on January 10, 2012."  
     },
     {
         id : 7,
@@ -311,7 +317,8 @@ let productList = [
         outOfStock: true,
         fastDeliveryAvailable : false,
         genre: "philosophy",
-        rating : 3  
+        rating : 3,
+        description: "The Top Five Regrets of the Dying - A Life Transformed by the Dearly Departing is a 2012 book by Bronnie Ware inspired by her time as a palliative carer."  
     },
     {
         id : 8,
@@ -326,7 +333,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "manga",
-        rating : 4 
+        rating : 4,
+        description: "The world’s most popular ninja comic! Naruto is a young shinobi with an incorrigible knack for mischief. He’s got a wild sense of humor, but Naruto is completely serious about his mission to be the world’s greatest ninja!" 
     },
     {
         id : 9,
@@ -341,7 +349,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "manga",
-        rating : 5 
+        rating : 5,
+        description: "The Naruto series was wildly popular and ran for 15 years. It was made into anime series for television and also several movies. Volume 72 was the grand finale for the series. Will Naruto finally achieve all that he has strived for all his life? Will his actions bring peace to the world at long last?" 
     },
     {
         id : 10,
@@ -356,7 +365,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "fiction",
-        rating : 2 
+        rating : 2,
+        description: "The Da Vinci Code is a 2003 mystery thriller novel by Dan Brown. It is Brown's second novel to include the character Robert Langdon: the first was his 2000 novel Angels & Demons." 
     },
     {
         id : 11,
@@ -371,7 +381,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "fiction",
-        rating : 3  
+        rating : 3,
+        description: "Angels & Demons is a 2000 bestselling mystery-thriller novel written by American author Dan Brown and published by Pocket Books and then by Corgi Books. The novel introduces the character Robert Langdon, who recurs as the protagonist of Brown's subsequent novels."  
     },
     {
         id : 12,
@@ -386,7 +397,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "philosophy",
-        rating : 2  
+        rating : 4,
+        description: "The Gulag Archipelago: An Experiment in Literary Investigation is a three-volume non-fiction text written between 1958 and 1968 by Russian writer and Soviet dissident Aleksandr Solzhenitsyn. It was first published in 1973, and translated into English and French the following year."   
     },
     {
         id : 13,
@@ -401,7 +413,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "thriller",
-        rating : 5  
+        rating : 5,
+        description: "The Murder of Roger Ackroyd is a work of detective fiction by British writer Agatha Christie, first published in June 1926 in the United Kingdom by William Collins, Sons and in the United States by Dodd, Mead and Company. It is the third novel to feature Hercule Poirot as the lead detective"  
     },
     {
         id : 14,
@@ -416,7 +429,8 @@ let productList = [
         outOfStock: true,
         fastDeliveryAvailable : true,
         genre: "fiction",
-        rating : 4  
+        rating : 4,
+        description: "The Secret is a 2006 self-help book by Rhonda Byrne, based on the earlier film of the same name. It is based on the belief of the pseudoscientific law of attraction, which claims that thoughts can change a person's life directly. The book alleges energy as assurance of its effectiveness."  
     },
     {
         id : 15,
@@ -431,7 +445,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "romance",
-        rating : 5  
+        rating : 5,
+        description: "Fifty Shades of Grey is a 2011 erotic romance novel by British author E. L. James. It became the first instalment in the Fifty Shades novel series that follows the deepening relationship between a college graduate, Anastasia Steele, and a young business magnate, Christian Grey."  
     },
     {
         id : 16,
@@ -446,7 +461,8 @@ let productList = [
         outOfStock: true,
         fastDeliveryAvailable : false,
         genre: "philosophy",
-        rating : 3  
+        rating : 3,
+        description: "Man's Search for Meaning is a 1946 book by Viktor Frankl chronicling his experiences as a prisoner in Nazi concentration camps during World War II, and describing his psychotherapeutic method, which involved identifying a purpose in life to feel positive about, and then immersively imagining that outcome."  
     },
     {
         id : 17,
@@ -461,7 +477,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "romance",
-        rating : 3  
+        rating : 3,
+        description: "I Too Had a Love Story is an English autobiographical novel written by Ravinder Singh. This was the debut novel of the author and was first published in 2008 by Srishti Publishers, in 2012 it was republished by Penguin India."  
     },
     {
         id : 18,
@@ -476,7 +493,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "thriller",
-        rating : 4  
+        rating : 4,
+        description: "The Mystery of the Blue Train is a work of detective fiction by British writer Agatha Christie, first published in the United Kingdom by William Collins & Sons on 29 March 1928 and in the United States by Dodd, Mead and Company later in the same year."  
     },
     {
         id : 19,
@@ -491,7 +509,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "thriller",
-        rating : 4  
+        rating : 4,
+        description: "Death on the Nile is a work of detective fiction by British writer Agatha Christie, published in the UK by the Collins Crime Club on 1 November 1937 and in the US by Dodd, Mead and Company the following year. The UK edition retailed at seven shillings and sixpence and the US edition at $2.00."  
     },
     {
         id : 20,
@@ -506,7 +525,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "tech",
-        rating : 4   
+        rating : 4,
+        description: "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications."   
     },
     {
         id : 21,
@@ -521,7 +541,8 @@ let productList = [
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "tech",
-        rating : 4    
+        rating : 4,
+        description: "Are you looking for a better way to deeply learn the fundamentals of JavaScript? Look no further!The foundation of all programs is the organization of its variables and functions into different nested scopes. This is a series of books diving deep into the core mechanisms of the JavaScript language."    
     }
 ]
 
@@ -531,37 +552,11 @@ function productsOrderFunc(state,action)
     {
         case "PRICE_HIGH_TO_LOW" : 
             {
-                // for(let i=0; i<state.length-1; i++)
-                // {
-                //     for(let j=0; j<state.length-1-i; j++)
-                //     {
-                //         if(state[j].discountedprice < state[j+1].discountedprice && i+1<state.length)
-                //         {
-                //             let swappedNum = state[j];
-                //             state[j] = state[j+1];
-                //             state[j+1] = swappedNum
-                //         }
-                //     }
-                // }
-                // return [...state]
                 return [...state].sort((a,b)=>b.discountedprice-a.discountedprice)
             }
 
         case "PRICE_LOW_TO_HIGH" : 
             {
-                // for(let i=0; i<state.length-1; i++)
-                // {
-                //     for(let j=0; j<state.length-1-i; j++)
-                //     {
-                //         if(state[j].discountedprice > state[j+1].discountedprice && i+1<state.length)
-                //         {
-                //             let swappedNum = state[j];
-                //             state[j] = state[j+1];
-                //             state[j+1] = swappedNum
-                //         }
-                //     }
-                // }
-                // return [...state]
                 return [...state].sort((a,b)=>a.discountedprice-b.discountedprice)
             }
 

@@ -3,8 +3,7 @@ import { Link } from "react-router-dom"
 import { useLocation } from "react-router-dom"
 import LibraryIllustration from "../..//Assets/Images/Library_Illustration_1.jpg"
 import './Home.css'
-import { 
-  Navbar, 
+import {  
   GenreCard, 
   newArrivalsProductList,
   ProductCard,
@@ -32,7 +31,6 @@ function Home() {
 
   return (
     <div className='home-component-container'>
-      <Navbar/>
       <div className='home-page-img-container'>
         <img className="home-page-background-img" src={LibraryIllustration} alt="Library Illustration"/>
       </div>
