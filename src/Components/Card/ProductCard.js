@@ -3,9 +3,21 @@ import { Link } from "react-router-dom"
 
 export default function ProductCard(props) 
 {
-    let {productdetails} = props;
+    const {productdetails} = props;
 
-    let {id, bookname,author,originalprice,discountedprice,discountpercent,imgsrc, imgalt,badgetext, outOfStock} = productdetails
+    const {
+        id, 
+        bookName,
+        author,
+        originalPrice,
+        discountedPrice,
+        discountPercent,
+        imgSrc, 
+        imgAlt,
+        badgeText, 
+        outOfStock
+    } = productdetails
+
     return (
         <Link 
             to={`/shop/${id}`}  
@@ -14,14 +26,14 @@ export default function ProductCard(props)
             rel="noopener noreferrer"
         >
             <div className="card-basic">
-                <img src={imgsrc} alt={imgalt}/>
+                <img src={imgSrc} alt={imgAlt}/>
                 <div className="card-item-details">
                     <div className="item-title">
-                        <h4>{bookname}</h4>
+                        <h4>{bookName}</h4>
                     </div>
                     <h5 className="item-author">- By  &nbsp;{author}</h5>
-                    <p><b>Rs. {discountedprice}   &nbsp;&nbsp;</b><del>Rs. {originalprice}</del> &nbsp;&nbsp;
-                        <span className="discount-on-card">({discountpercent}% off)</span>
+                    <p><b>Rs. {discountedPrice}   &nbsp;&nbsp;</b><del>Rs. {originalPrice}</del> &nbsp;&nbsp;
+                        <span className="discount-on-card">({discountPercent}% off)</span>
                     </p>
                     <div className="card-button">
                         <button 
@@ -34,7 +46,7 @@ export default function ProductCard(props)
                         </button>
                     </div>
                     <div className="badge-on-card">
-                        {badgetext}
+                        {badgeText}
                     </div>
                     {
                         outOfStock && (
