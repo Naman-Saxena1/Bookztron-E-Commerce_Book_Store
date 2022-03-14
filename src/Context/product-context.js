@@ -210,318 +210,339 @@ function updateProductFilters(state, action)
 let productList = [
     {
         id : 1,
-        bookname : "Thus Spoke Zarathustra",
+        bookName : "Thus Spoke Zarathustra",
         author   : "Friedrich Nietzche",
-        originalprice : 400,
-        discountedprice : 300,
-        discountpercent : 25,
-        imgsrc : 'https://enztron-dev-branch.netlify.app/Icons-and-Images/Book-Covers/Book_Cover-Thus_Spoke_Zarathustra.jpg',
-        imgalt : 'Book - Thus Spoke Zarathustra',
-        badgetext : 'Best Seller',
+        originalPrice : 400,
+        discountedPrice : 300,
+        discountPercent : 25,
+        imgSrc : 'https://enztron-dev-branch.netlify.app/Icons-and-Images/Book-Covers/Book_Cover-Thus_Spoke_Zarathustra.jpg',
+        imgAlt : 'Book - Thus Spoke Zarathustra',
+        badgeText : 'Best Seller',
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "philosophy",
-        rating : 4
+        rating : 4,
+        description: "Thus Spoke Zarathustra: A Book for All and None, also translated as Thus Spake Zarathustra, is a work of philosophical fiction written by German philosopher Friedrich Nietzsche between 1883 and 1885."
     },
     {
         id : 2,
-        bookname : "Attack On Titan - Volume 34",
+        bookName : "Attack On Titan - Volume 34",
         author   : "Hajime Isayama",
-        originalprice : 1000,
-        discountedprice : 750,
-        discountpercent : 25,
-        imgsrc : Attack_On_Titan,
-        imgalt : 'Book-Attack On Titan',
-        badgetext : 'New Arrival',
+        originalPrice : 1000,
+        discountedPrice : 750,
+        discountPercent : 25,
+        imgSrc : Attack_On_Titan,
+        imgAlt : 'Book-Attack On Titan',
+        badgeText : 'New Arrival',
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "manga",
-        rating : 3
+        rating : 3,
+        description: "Attack on Titan is a Japanese manga series written and illustrated by Hajime Isayama. It is set in a world where humanity lives inside cities surrounded by three enormous walls that protect them from the gigantic man-eating humanoids referred to as Titans" 
     },
     {
         id : 3,
-        bookname : "The Stranger",
+        bookName : "The Stranger",
         author   : "Albert Camus",
-        originalprice : 400,
-        discountedprice : 300,
-        discountpercent : 25,
-        imgsrc : 'https://enztron-dev-branch.netlify.app/Icons-and-Images/Book-Covers/Book_Cover-The_Stranger.jpg',
-        imgalt : 'Book-The Stranger',
-        badgetext : 'New Arrival',
+        originalPrice : 400,
+        discountedPrice : 300,
+        discountPercent : 25,
+        imgSrc : 'https://enztron-dev-branch.netlify.app/Icons-and-Images/Book-Covers/Book_Cover-The_Stranger.jpg',
+        imgAlt : 'Book-The Stranger',
+        badgeText : 'New Arrival',
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "philosophy",
-        rating : 3
+        rating : 3, 
+        description : "The Stranger, also published in English as The Outsider, is a 1942 novella by French author Albert Camus. Its theme and outlook are often cited as examples of Camus' philosophy, absurdism, coupled with existentialism; though Camus personally rejected the latter label." 
     },
     {
         id : 4,
-        bookname : "Game Of Thrones - Dance with Dragons",
+        bookName : "Game Of Thrones - Dance with Dragons",
         author   : "George R. R. Martin",
-        originalprice : 1000,
-        discountedprice : 750,
-        discountpercent : 25,
-        imgsrc : 'https://enztron-store-basic-version-dev-branch.netlify.app/Images/HomePage/Game_Of_Thrones-Dance-with-Dragons.jpg',
-        imgalt : 'Book-Game Of Thrones Dance with Dragons',
-        badgetext : 'Popular',
+        originalPrice : 1000,
+        discountedPrice : 750,
+        discountPercent : 25,
+        imgSrc : 'https://enztron-store-basic-version-dev-branch.netlify.app/Images/HomePage/Game_Of_Thrones-Dance-with-Dragons.jpg',
+        imgAlt : 'Book-Game Of Thrones Dance with Dragons',
+        badgeText : 'Popular',
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "fiction",
-        rating : 2
+        rating : 2,
+        description: "A Dance with Dragons is the fifth novel of seven planned in the epic fantasy series A Song of Ice and Fire by American author George R. R. Martin. In some areas, the paperback edition was published in two parts, titled Dreams and Dust and After the Feast."
     },
     {
         id : 5,
-        bookname : "Harry Potter and the Deathly Hollows",
+        bookName : "Harry Potter and the Deathly Hollows",
         author   : "J.K. Rowling",
-        originalprice : 400,
-        discountedprice : 300,
-        discountpercent : 25,
-        imgsrc : HarryPotterDeathlyHollows,
-        imgalt : 'Book - Harry Potter Deathly Hollows',
-        badgetext : 'New Arrival',
+        originalPrice : 400,
+        discountedPrice : 300,
+        discountPercent : 25,
+        imgSrc : HarryPotterDeathlyHollows,
+        imgAlt : 'Book - Harry Potter Deathly Hollows',
+        badgeText : 'New Arrival',
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "fiction",
-        rating : 4
+        rating : 4, 
+        description : "Harry Potter and the Deathly Hallows is a fantasy novel written by British author J. K. Rowling and the seventh and final novel of the main Harry Potter series. It was released on 14 July 2007 in the United Kingdom by Bloomsbury Publishing, in the United States by Scholastic, and in Canada by Raincoast Books."
     },
     {
         id : 6,
-        bookname : "The Fault In Our Stars",
+        bookName : "The Fault In Our Stars",
         author   : "John Green",
-        originalprice : 200,
-        discountedprice : 225,
-        discountpercent : 25,
-        imgsrc : The_Fault_In_Our_Stars,
-        imgalt : 'Book-The_Fault_In_Our_Stars',
-        badgetext : 'New Arrival',
+        originalPrice : 200,
+        discountedPrice : 225,
+        discountPercent : 25,
+        imgSrc : The_Fault_In_Our_Stars,
+        imgAlt : 'Book-The_Fault_In_Our_Stars',
+        badgeText : 'New Arrival',
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "romance",
-        rating : 1 
+        rating : 1, 
+        description : "The Fault in Our Stars is a novel by John Green. It is his fourth solo novel, and sixth novel overall. It was published on January 10, 2012."  
     },
     {
         id : 7,
-        bookname : "Top 5 Regrets Of The Dying",
+        bookName : "Top 5 Regrets Of The Dying",
         author   : "Bronnie Ware",
-        originalprice : 200,
-        discountedprice : 225,
-        discountpercent : 25,
-        imgsrc : 'https://enztron-dev-branch.netlify.app/Icons-and-Images/Book-Covers/Book_Cover-Top_5_Regrets_Of_The_Dying.jpg',
-        imgalt : 'Book-Top_5_Regrets_Of_The_Dying',
-        badgetext : 'Trending',
+        originalPrice : 200,
+        discountedPrice : 225,
+        discountPercent : 25,
+        imgSrc : 'https://enztron-dev-branch.netlify.app/Icons-and-Images/Book-Covers/Book_Cover-Top_5_Regrets_Of_The_Dying.jpg',
+        imgAlt : 'Book-Top_5_Regrets_Of_The_Dying',
+        badgeText : 'Trending',
         outOfStock: true,
         fastDeliveryAvailable : false,
         genre: "philosophy",
-        rating : 3  
+        rating : 3,
+        description: "The Top Five Regrets of the Dying - A Life Transformed by the Dearly Departing is a 2012 book by Bronnie Ware inspired by her time as a palliative carer."  
     },
     {
         id : 8,
-        bookname : "Naruto - Volume 1",
+        bookName : "Naruto - Volume 1",
         author   : "Masashi Kishimoto",
-        originalprice : 1000,
-        discountedprice : 750,
-        discountpercent : 25,
-        imgsrc : Naruto_Volume1,
-        imgalt : 'Book-Naruto - Volume 1',
-        badgetext : 'Popular',
+        originalPrice : 1000,
+        discountedPrice : 750,
+        discountPercent : 25,
+        imgSrc : Naruto_Volume1,
+        imgAlt : 'Book-Naruto - Volume 1',
+        badgeText : 'Popular',
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "manga",
-        rating : 4 
+        rating : 4,
+        description: "The world’s most popular ninja comic! Naruto is a young shinobi with an incorrigible knack for mischief. He’s got a wild sense of humor, but Naruto is completely serious about his mission to be the world’s greatest ninja!" 
     },
     {
         id : 9,
-        bookname : "Naruto - Volume 72",
+        bookName : "Naruto - Volume 72",
         author   : "Masashi Kishimoto",
-        originalprice : 1000,
-        discountedprice : 750,
-        discountpercent : 25,
-        imgsrc : Naruto_Volume72,
-        imgalt : 'Book-Naruto - Volume 72',
-        badgetext : 'Popular',
+        originalPrice : 1000,
+        discountedPrice : 750,
+        discountPercent : 25,
+        imgSrc : Naruto_Volume72,
+        imgAlt : 'Book-Naruto - Volume 72',
+        badgeText : 'Popular',
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "manga",
-        rating : 5 
+        rating : 5,
+        description: "The Naruto series was wildly popular and ran for 15 years. It was made into anime series for television and also several movies. Volume 72 was the grand finale for the series. Will Naruto finally achieve all that he has strived for all his life? Will his actions bring peace to the world at long last?" 
     },
     {
         id : 10,
-        bookname : "Da Vinci Code",
+        bookName : "Da Vinci Code",
         author   : "Dan Brown",
-        originalprice : 800,
-        discountedprice : 600,
-        discountpercent : 25,
-        imgsrc : DanBrown_DaVinciCode,
-        imgalt : 'Book-Dan Brown - Da Vinci Code',
-        badgetext : 'Trending',
+        originalPrice : 800,
+        discountedPrice : 600,
+        discountPercent : 25,
+        imgSrc : DanBrown_DaVinciCode,
+        imgAlt : 'Book-Dan Brown - Da Vinci Code',
+        badgeText : 'Trending',
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "fiction",
-        rating : 2 
+        rating : 2,
+        description: "The Da Vinci Code is a 2003 mystery thriller novel by Dan Brown. It is Brown's second novel to include the character Robert Langdon: the first was his 2000 novel Angels & Demons." 
     },
     {
         id : 11,
-        bookname : "Angels and Demons",
+        bookName : "Angels and Demons",
         author   : "Dan Brown",
-        originalprice : 800,
-        discountedprice : 600,
-        discountpercent : 25,
-        imgsrc : DanBrown_Angels_and_Demons,
-        imgalt : 'Book-Dan Brown - Angels and Demons',
-        badgetext : 'Trending',
+        originalPrice : 800,
+        discountedPrice : 600,
+        discountPercent : 25,
+        imgSrc : DanBrown_Angels_and_Demons,
+        imgAlt : 'Book-Dan Brown - Angels and Demons',
+        badgeText : 'Trending',
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "fiction",
-        rating : 3  
+        rating : 3,
+        description: "Angels & Demons is a 2000 bestselling mystery-thriller novel written by American author Dan Brown and published by Pocket Books and then by Corgi Books. The novel introduces the character Robert Langdon, who recurs as the protagonist of Brown's subsequent novels."  
     },
     {
         id : 12,
-        bookname : "The Gulag Archipelago",
+        bookName : "The Gulag Archipelago",
         author   : "Aleksandr Solzhenitsyn",
-        originalprice : 400,
-        discountedprice : 300,
-        discountpercent : 25,
-        imgsrc : "https://enztron-dev-branch.netlify.app/Icons-and-Images/Book-Covers/Book_Cover-The_Gulag_Archipelago.jpg",
-        imgalt : 'Book - The Gulag Archipelago',
-        badgetext : 'Best Seller',
+        originalPrice : 400,
+        discountedPrice : 300,
+        discountPercent : 25,
+        imgSrc : "https://enztron-dev-branch.netlify.app/Icons-and-Images/Book-Covers/Book_Cover-The_Gulag_Archipelago.jpg",
+        imgAlt : 'Book - The Gulag Archipelago',
+        badgeText : 'Best Seller',
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "philosophy",
-        rating : 2  
+        rating : 4,
+        description: "The Gulag Archipelago: An Experiment in Literary Investigation is a three-volume non-fiction text written between 1958 and 1968 by Russian writer and Soviet dissident Aleksandr Solzhenitsyn. It was first published in 1973, and translated into English and French the following year."   
     },
     {
         id : 13,
-        bookname : "Murder of Roger Ackroyd",
+        bookName : "Murder of Roger Ackroyd",
         author   : "Agatha Christie",
-        originalprice : 400,
-        discountedprice : 300,
-        discountpercent : 25,
-        imgsrc : "https://enztron-temp-deployed-branch.netlify.app/Icons-and-Images/Book-Covers/Book_Cover-The_Murder_Of_Roger_Ackroyd.jpg",
-        imgalt : 'Book - Murder of Roger Ackroyd',
-        badgetext : 'Thriller',
+        originalPrice : 400,
+        discountedPrice : 300,
+        discountPercent : 25,
+        imgSrc : "https://enztron-temp-deployed-branch.netlify.app/Icons-and-Images/Book-Covers/Book_Cover-The_Murder_Of_Roger_Ackroyd.jpg",
+        imgAlt : 'Book - Murder of Roger Ackroyd',
+        badgeText : 'Thriller',
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "thriller",
-        rating : 5  
+        rating : 5,
+        description: "The Murder of Roger Ackroyd is a work of detective fiction by British writer Agatha Christie, first published in June 1926 in the United Kingdom by William Collins, Sons and in the United States by Dodd, Mead and Company. It is the third novel to feature Hercule Poirot as the lead detective"  
     },
     {
         id : 14,
-        bookname : "The Secret",
+        bookName : "The Secret",
         author   : "Rhonda Byrne",
-        originalprice : 400,
-        discountedprice : 300,
-        discountpercent : 25,
-        imgsrc : The_Secret,
-        imgalt : 'Book - The Secret',
-        badgetext : 'Best Seller',
+        originalPrice : 400,
+        discountedPrice : 300,
+        discountPercent : 25,
+        imgSrc : The_Secret,
+        imgAlt : 'Book - The Secret',
+        badgeText : 'Best Seller',
         outOfStock: true,
         fastDeliveryAvailable : true,
         genre: "fiction",
-        rating : 4  
+        rating : 4,
+        description: "The Secret is a 2006 self-help book by Rhonda Byrne, based on the earlier film of the same name. It is based on the belief of the pseudoscientific law of attraction, which claims that thoughts can change a person's life directly. The book alleges energy as assurance of its effectiveness."  
     },
     {
         id : 15,
-        bookname : "50 Shades Of Grey",
+        bookName : "50 Shades Of Grey",
         author   : "E. L. James",
-        originalprice : 400,
-        discountedprice : 300,
-        discountpercent : 25,
-        imgsrc : Shades_Of_Grey,
-        imgalt : 'Book - 50 Shades Of Grey',
-        badgetext : 'Romance',
+        originalPrice : 400,
+        discountedPrice : 300,
+        discountPercent : 25,
+        imgSrc : Shades_Of_Grey,
+        imgAlt : 'Book - 50 Shades Of Grey',
+        badgeText : 'Romance',
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "romance",
-        rating : 5  
+        rating : 5,
+        description: "Fifty Shades of Grey is a 2011 erotic romance novel by British author E. L. James. It became the first instalment in the Fifty Shades novel series that follows the deepening relationship between a college graduate, Anastasia Steele, and a young business magnate, Christian Grey."  
     },
     {
         id : 16,
-        bookname : "Man's Search For Meaning",
+        bookName : "Man's Search For Meaning",
         author   : "Viktor E. Frankl",
-        originalprice : 400,
-        discountedprice : 300,
-        discountpercent : 25,
-        imgsrc : MansSearchForMeaning,
-        imgalt : 'Book - Mans Search For Meaning',
-        badgetext : 'Best Seller',
+        originalPrice : 400,
+        discountedPrice : 300,
+        discountPercent : 25,
+        imgSrc : MansSearchForMeaning,
+        imgAlt : 'Book - Mans Search For Meaning',
+        badgeText : 'Best Seller',
         outOfStock: true,
         fastDeliveryAvailable : false,
         genre: "philosophy",
-        rating : 3  
+        rating : 3,
+        description: "Man's Search for Meaning is a 1946 book by Viktor Frankl chronicling his experiences as a prisoner in Nazi concentration camps during World War II, and describing his psychotherapeutic method, which involved identifying a purpose in life to feel positive about, and then immersively imagining that outcome."  
     },
     {
         id : 17,
-        bookname : "I too had a love story",
+        bookName : "I too had a love story",
         author   : "Ravinder Singh",
-        originalprice : 400,
-        discountedprice : 300,
-        discountpercent : 25,
-        imgsrc : I_too_had_a_love_story,
-        imgalt : 'Book - I too had a love story',
-        badgetext : 'Romance',
+        originalPrice : 400,
+        discountedPrice : 300,
+        discountPercent : 25,
+        imgSrc : I_too_had_a_love_story,
+        imgAlt : 'Book - I too had a love story',
+        badgeText : 'Romance',
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "romance",
-        rating : 3  
+        rating : 3,
+        description: "I Too Had a Love Story is an English autobiographical novel written by Ravinder Singh. This was the debut novel of the author and was first published in 2008 by Srishti Publishers, in 2012 it was republished by Penguin India."  
     },
     {
         id : 18,
-        bookname : "The Mystery Of The Blue Train",
+        bookName : "The Mystery Of The Blue Train",
         author   : "Agatha Christie",
-        originalprice : 400,
-        discountedprice : 300,
-        discountpercent : 25,
-        imgsrc : The_Mystery_Of_The_Blue_Train,
-        imgalt : 'Book - The Mystery Of The Blue Train',
-        badgetext : 'Thriller',
+        originalPrice : 400,
+        discountedPrice : 300,
+        discountPercent : 25,
+        imgSrc : The_Mystery_Of_The_Blue_Train,
+        imgAlt : 'Book - The Mystery Of The Blue Train',
+        badgeText : 'Thriller',
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "thriller",
-        rating : 4  
+        rating : 4,
+        description: "The Mystery of the Blue Train is a work of detective fiction by British writer Agatha Christie, first published in the United Kingdom by William Collins & Sons on 29 March 1928 and in the United States by Dodd, Mead and Company later in the same year."  
     },
     {
         id : 19,
-        bookname : "Death On The Nile",
+        bookName : "Death On The Nile",
         author   : "Agatha Christie",
-        originalprice : 400,
-        discountedprice : 300,
-        discountpercent : 25,
-        imgsrc : Death_On_The_Nile,
-        imgalt : 'Book - Death On The Nile',
-        badgetext : 'Thriller',
+        originalPrice : 400,
+        discountedPrice : 300,
+        discountPercent : 25,
+        imgSrc : Death_On_The_Nile,
+        imgAlt : 'Book - Death On The Nile',
+        badgeText : 'Thriller',
         outOfStock: false,
         fastDeliveryAvailable : false,
         genre: "thriller",
-        rating : 4  
+        rating : 4,
+        description: "Death on the Nile is a work of detective fiction by British writer Agatha Christie, published in the UK by the Collins Crime Club on 1 November 1937 and in the US by Dodd, Mead and Company the following year. The UK edition retailed at seven shillings and sixpence and the US edition at $2.00."  
     },
     {
         id : 20,
-        bookname : "Eloquent JavaScript",
+        bookName : "Eloquent JavaScript",
         author   : "Marijn Haverbeke",
-        originalprice : 800,
-        discountedprice : 600,
-        discountpercent : 25,
-        imgsrc : Eloquent_JavaScript,
-        imgalt : 'Book-Dan Brown - Eloquent JavaScript',
-        badgetext : 'Tech',
+        originalPrice : 800,
+        discountedPrice : 600,
+        discountPercent : 25,
+        imgSrc : Eloquent_JavaScript,
+        imgAlt : 'Book-Dan Brown - Eloquent JavaScript',
+        badgeText : 'Tech',
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "tech",
-        rating : 4   
+        rating : 4,
+        description: "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications."   
     },
     {
         id : 21,
-        bookname : "You Don't Know JS",
+        bookName : "You Don't Know JS",
         author   : "Kyle Simpson",
-        originalprice : 800,
-        discountedprice : 600,
-        discountpercent : 25,
-        imgsrc : You_Dont_Know_JS,
-        imgalt : 'Book-Dan Brown - You Dont Know JS',
-        badgetext : 'Tech',
+        originalPrice : 800,
+        discountedPrice : 600,
+        discountPercent : 25,
+        imgSrc : You_Dont_Know_JS,
+        imgAlt : 'Book-Dan Brown - You Dont Know JS',
+        badgeText : 'Tech',
         outOfStock: false,
         fastDeliveryAvailable : true,
         genre: "tech",
-        rating : 4    
+        rating : 4,
+        description: "Are you looking for a better way to deeply learn the fundamentals of JavaScript? Look no further!The foundation of all programs is the organization of its variables and functions into different nested scopes. This is a series of books diving deep into the core mechanisms of the JavaScript language."    
     }
 ]
 
@@ -531,38 +552,12 @@ function productsOrderFunc(state,action)
     {
         case "PRICE_HIGH_TO_LOW" : 
             {
-                // for(let i=0; i<state.length-1; i++)
-                // {
-                //     for(let j=0; j<state.length-1-i; j++)
-                //     {
-                //         if(state[j].discountedprice < state[j+1].discountedprice && i+1<state.length)
-                //         {
-                //             let swappedNum = state[j];
-                //             state[j] = state[j+1];
-                //             state[j+1] = swappedNum
-                //         }
-                //     }
-                // }
-                // return [...state]
-                return [...state].sort((a,b)=>b.discountedprice-a.discountedprice)
+                return [...state].sort((a,b)=>b.discountedPrice-a.discountedPrice)
             }
 
         case "PRICE_LOW_TO_HIGH" : 
             {
-                // for(let i=0; i<state.length-1; i++)
-                // {
-                //     for(let j=0; j<state.length-1-i; j++)
-                //     {
-                //         if(state[j].discountedprice > state[j+1].discountedprice && i+1<state.length)
-                //         {
-                //             let swappedNum = state[j];
-                //             state[j] = state[j+1];
-                //             state[j+1] = swappedNum
-                //         }
-                //     }
-                // }
-                // return [...state]
-                return [...state].sort((a,b)=>a.discountedprice-b.discountedprice)
+                return [...state].sort((a,b)=>a.discountedPrice-b.discountedPrice)
             }
 
         case "UPDATE_LIST_AS_PER_FILTERS" : 
@@ -573,8 +568,8 @@ function productsOrderFunc(state,action)
                     return (action.payload.onlyFastDeliveryProducts===false) 
                     ? productList.filter(item=>
                         (
-                            action.payload.minPrice<=item.discountedprice 
-                            && item.discountedprice<action.payload.maxPrice
+                            action.payload.minPrice<=item.discountedPrice 
+                            && item.discountedPrice<action.payload.maxPrice
                             && action.payload[item.genre]
                             && item.rating>=action.payload.minRating
                         )
@@ -583,8 +578,8 @@ function productsOrderFunc(state,action)
                         (
                             item.fastDeliveryAvailable===true
                             && (
-                                action.payload.minPrice<=item.discountedprice 
-                                && item.discountedprice<action.payload.maxPrice
+                                action.payload.minPrice<=item.discountedPrice 
+                                && item.discountedPrice<action.payload.maxPrice
                                ) 
                             && action.payload[item.genre]
                             && item.rating>=action.payload.minRating
@@ -598,8 +593,8 @@ function productsOrderFunc(state,action)
                         (
                             item.outOfStock===false 
                             && (
-                                action.payload.minPrice<=item.discountedprice 
-                                && item.discountedprice<action.payload.maxPrice
+                                action.payload.minPrice<=item.discountedPrice 
+                                && item.discountedPrice<action.payload.maxPrice
                                ) 
                             && action.payload[item.genre]
                             && item.rating>=action.payload.minRating
@@ -609,8 +604,8 @@ function productsOrderFunc(state,action)
                             item.outOfStock===false
                             && item.fastDeliveryAvailable===true 
                             && (
-                                action.payload.minPrice<=item.discountedprice 
-                                && item.discountedprice<action.payload.maxPrice
+                                action.payload.minPrice<=item.discountedPrice 
+                                && item.discountedPrice<action.payload.maxPrice
                                ) 
                             && action.payload[item.genre]
                             && item.rating>=action.payload.minRating

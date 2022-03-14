@@ -1,0 +1,112 @@
+.product-page-container
+{
+    width: 100%;
+    min-height: calc(100vh - 10.7rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-page-item
+{
+    min-width: 80%;
+    min-height: 80%;
+    padding: 1rem 5rem 3rem 5rem;
+    display: flex;
+    gap: 3rem;
+}
+
+@media only screen and (max-width: 1018px)
+{
+    .item-author, .item-rating
+    {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+}
+
+@media only screen and (max-width: 945px)
+{
+    .product-page-item
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .item-buttons
+    {
+        flex-direction: column;
+        margin-top: 1.6rem;
+        align-items: stretch;
+    }
+
+    .item-buttons button
+    {
+        width: 100%;
+    }
+}
+
+.bookcover-image
+{
+    height: 40rem;
+}
+
+.item-details
+{
+    min-height: 100%;
+    max-width: 80rem;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0rem 4rem 0rem 4rem;
+    flex-grow: 1;
+}
+
+.item-details hr
+{
+    width: 100%;
+}
+
+.item-description
+{
+    text-align: left;
+    margin: 0;
+}
+
+.item-price-details
+{
+    margin: 0;
+}
+
+.discount-on-item
+{
+    color: var(--notification-or-error);
+    font-size: 14px;
+}
+
+.item-buttons
+{
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.item-buttons button
+{
+    flex-grow: 1;
+    margin: 0;
+}
+
+.out-of-stock-text
+{
+    color: var(--red-color);
+}
+
+.item-notify-me-btn
+{
+    background-color: var(--red-color);
+}

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useLocation } from "react-router-dom"
 import "./Shop.css"
 import { 
-  Navbar, 
   Sidebar, 
   ProductCard
 } from "../../index.js"
@@ -20,7 +19,6 @@ function Shop(props) {
 
     return (
         <div>
-            <Navbar/>
             <div className='shop-container'>
                 <Sidebar/>
                 <div className='products-container'>

@@ -16,8 +16,6 @@
 
 html
 {
-    min-height: 100%;
-    background-color: white;
     font-family: 'Comfortaa', cursive;
 }
 
@@ -26,10 +24,17 @@ body
     font-family: 'Comfortaa', cursive;
 }
 
+html, body
+{
+    height: auto;
+    background-color: white;
+}
+
 .App {
-  text-align: center;
-  background-color: white;
-  font-family: 'Comfortaa', cursive;
+    min-height: 100%;
+    text-align: center;
+    background-color: white;
+    font-family: 'Comfortaa', cursive;
 }
 
 *::-webkit-scrollbar 
