@@ -1,0 +1,100 @@
+body
+{
+    height: 100vh;
+}
+
+.user-auth-content-container
+{
+    /* max-height: fit-content; */
+    min-height: 110%;
+    width: fit-content;
+    padding: 2rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: var(--royal-blue);
+    border-radius: 6px;
+}
+
+.user-auth-form
+{
+    padding: 3rem 4rem;
+    max-width: fit-content;
+    text-align: left;
+    border: none;
+}
+
+.user-auth-form input
+{
+    outline: none;
+}
+
+.user-options-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.remember-me-container
+{
+    display: flex;
+    align-items: center;
+}
+
+#forgot-password
+{
+    color: var(--royal-blue);
+}
+
+.new-user-container
+{
+    display: flex;
+    justify-content: center;
+}
+
+#new-user-link
+{
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.links-with-blue-underline, .links-with-blue-underline:visited, .links-with-blue-underline:hover, .links-with-blue-underline:active {
+    color: var(--royal-blue);
+}
+
+.links-with-blue-underline::after
+{
+    content: '';
+    display: block;
+    width: 0px;
+    height: 2px;
+    background: var(--royal-blue);
+    transition: width .3s;
+}
+
+.links-with-blue-underline:hover::after
+{
+    width: 100%;
+}
+
+.accept-terms-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.existing-user-container
+{
+    display: flex;
+    justify-content: center;
+}
+
+.existing-user-link
+{
+    font-size: 1.6rem;
+    width: fit-content;
+    text-align: center;
+}

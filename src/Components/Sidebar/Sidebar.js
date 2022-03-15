@@ -40,6 +40,8 @@ function Sidebar() {
 
   useEffect(()=>{
     dispatchSortedProductsList({type:"UPDATE_LIST_AS_PER_FILTERS",payload:productFilterOptions})
+    if(sortPriceLowToHigh){ setSortPriceLowToHigh(true); setSortPriceHighToLow(false); dispatchSortedProductsList({type:"PRICE_LOW_TO_HIGH"}) }
+    if(sortPriceHighToLow){ setSortPriceLowToHigh(false); setSortPriceHighToLow(true); dispatchSortedProductsList({type:"PRICE_HIGH_TO_LOW"}) }
   },[productFilterOptions, dispatchSortedProductsList])
 
   function clearFilters()
@@ -281,7 +283,7 @@ function Sidebar() {
 
         <div className="sortby-items">
           <input
-            onChange={() => {setSortPriceLowToHigh(false); setSortPriceHighToLow(true); dispatchSortedProductsList({type:"PRICE_HIGH_TO_LOW"}) } }
+            onChange={() => { setSortPriceLowToHigh(false); setSortPriceHighToLow(true); dispatchSortedProductsList({type:"PRICE_HIGH_TO_LOW"}) } }
             type="radio"
             id="price-high-to-low"
             name="sort-by"

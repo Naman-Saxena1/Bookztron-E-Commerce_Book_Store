@@ -18,7 +18,9 @@ function Navbar() {
             </div>
         </div>
         <div className="right-topbar-container">
-            <button className="navbar-login-btn solid-primary-btn">Login</button>
+            <Link to="/login">
+                <button className="navbar-login-btn solid-primary-btn">Login</button>
+            </Link>
             <button id="my-wishlist-btn" className="icon-btn">
                 <div className="icon-count-badge">
                     <i className="fa fa-heart-o fa-x" aria-hidden="true" ></i>
