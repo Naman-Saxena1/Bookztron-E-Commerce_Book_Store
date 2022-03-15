@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.09bd75c5.css",
-    "main.js": "/static/js/main.d976d7e8.js",
+    "main.css": "/static/css/main.f318a91e.css",
+    "main.js": "/static/js/main.579fea01.js",
     "static/media/Library_Illustration_1.jpg": "/static/media/Library_Illustration_1.c54dafea582d6757c53e.jpg",
     "static/media/Eloquent_JavaScript.jpg": "/static/media/Eloquent_JavaScript.5786291afff0441fa00c.jpg",
     "static/media/You_Dont_Know_JS.jpg": "/static/media/You_Dont_Know_JS.3af319691cd3f530bb59.jpg",
@@ -19,11 +19,11 @@
     "static/media/50_Shades_Of_Grey.jpg": "/static/media/50_Shades_Of_Grey.eb3d0f619cd46865d648.jpg",
     "static/media/The_Fault_in_Our_Stars.jpg": "/static/media/The_Fault_in_Our_Stars.3e96852104b482635ca9.jpg",
     "index.html": "/index.html",
-    "main.09bd75c5.css.map": "/static/css/main.09bd75c5.css.map",
-    "main.d976d7e8.js.map": "/static/js/main.d976d7e8.js.map"
+    "main.f318a91e.css.map": "/static/css/main.f318a91e.css.map",
+    "main.579fea01.js.map": "/static/js/main.579fea01.js.map"
   },
   "entrypoints": [
-    "static/css/main.09bd75c5.css",
-    "static/js/main.d976d7e8.js"
+    "static/css/main.f318a91e.css",
+    "static/js/main.579fea01.js"
   ]
 }
