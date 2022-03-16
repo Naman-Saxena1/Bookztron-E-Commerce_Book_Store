@@ -1,29 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.f318a91e.css",
-    "main.js": "/static/js/main.579fea01.js",
+    "main.js": "/static/js/main.f1c5b76e.js",
     "static/media/Library_Illustration_1.jpg": "/static/media/Library_Illustration_1.c54dafea582d6757c53e.jpg",
-    "static/media/Eloquent_JavaScript.jpg": "/static/media/Eloquent_JavaScript.5786291afff0441fa00c.jpg",
-    "static/media/You_Dont_Know_JS.jpg": "/static/media/You_Dont_Know_JS.3af319691cd3f530bb59.jpg",
-    "static/media/The_Secret.jpg": "/static/media/The_Secret.0d60160bbc5b31f5bebb.jpg",
-    "static/media/I_too_had_a_love_story.jpg": "/static/media/I_too_had_a_love_story.d907917370992713cf37.jpg",
-    "static/media/Mans_Search_For_Meaning.jpg": "/static/media/Mans_Search_For_Meaning.66e4f02fc718134b7e84.jpg",
-    "static/media/Death_On_The_Nile.jpg": "/static/media/Death_On_The_Nile.810824c2757cd820c2e0.jpg",
-    "static/media/The_Mystery_Of_The_Blue_Train.jpg": "/static/media/The_Mystery_Of_The_Blue_Train.4d07c368d9f508dcb61d.jpg",
-    "static/media/Naruto Volume-72.jpg": "/static/media/Naruto Volume-72.35c99b6f81a45a3a817e.jpg",
-    "static/media/Attack_On_Titan.jpg": "/static/media/Attack_On_Titan.1a09ae25ab48a6e2c826.jpg",
-    "static/media/Dan Brown-Angels and Demons.jpg": "/static/media/Dan Brown-Angels and Demons.9003d5e7872f3a478edd.jpg",
-    "static/media/Dan Brown- Da Vinci Code.jpg": "/static/media/Dan Brown- Da Vinci Code.a894c15bbb436f490d4a.jpg",
-    "static/media/harry-potter-and-the-deathly-hallows.jpg": "/static/media/harry-potter-and-the-deathly-hallows.3b3e6af8d9a6377ea68b.jpg",
-    "static/media/Naruto Volume-1.jpg": "/static/media/Naruto Volume-1.9e626fc8c22809fa62b5.jpg",
-    "static/media/50_Shades_Of_Grey.jpg": "/static/media/50_Shades_Of_Grey.eb3d0f619cd46865d648.jpg",
-    "static/media/The_Fault_in_Our_Stars.jpg": "/static/media/The_Fault_in_Our_Stars.3e96852104b482635ca9.jpg",
     "index.html": "/index.html",
     "main.f318a91e.css.map": "/static/css/main.f318a91e.css.map",
-    "main.579fea01.js.map": "/static/js/main.579fea01.js.map"
+    "main.f1c5b76e.js.map": "/static/js/main.f1c5b76e.js.map"
   },
   "entrypoints": [
     "static/css/main.f318a91e.css",
-    "static/js/main.579fea01.js"
+    "static/js/main.f1c5b76e.js"
   ]
 }

@@ -6,16 +6,54 @@ import {
   ProductCard
 } from "../../index.js"
 import { useProductAvailable } from "../../Context/product-context"
+import axios from 'axios'
 
 function Shop(props) {
 
-    let { productsAvailableList } = useProductAvailable()
+    let { 
+      productsAvailableList, 
+      dispatchSortedProductsList, 
+      productFilterOptions 
+    } = useProductAvailable()
 
     const { pathname } = useLocation();
   
     useEffect(() => {
       window.scrollTo(0, 0);
     }, [pathname]);
+
+    useEffect(()=>{
+      
+      if( (JSON.stringify(productsAvailableList)===JSON.stringify([]))
+          && (
+              JSON.stringify(productFilterOptions)===JSON.stringify({
+              includeOutOfStock        : true,
+              onlyFastDeliveryProducts : false,
+              minPrice                 : 0,
+              maxPrice                 : 1200,
+              fiction                  : true,
+              thriller                 : true,
+              tech                     : true,
+              philosophy               : true,
+              romance                  : true,
+              manga                    : true,
+              minRating                : 1}) 
+             )
+        )
+      {
+        //Refresh happened - Filters are default yet productsAvailableList is empty
+        //Redo api call to get data
+        try {
+          (async () => {
+            const productsAvailableData = await axios.get('https://bookztron.herokuapp.com/api/products')
+            dispatchSortedProductsList({type:"ADD_ITEMS_TO_PRODUCTS_AVAILABLE_LIST", payload: [...productsAvailableData.data.productsList] })
+          }) ()
+        }
+        catch(error) {
+          console.log("Error : ", error);
+        }
+      }
+    },[])
 
     return (
         <div>

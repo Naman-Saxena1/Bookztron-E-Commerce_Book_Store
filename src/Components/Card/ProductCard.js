@@ -18,6 +18,7 @@ export default function ProductCard(props)
         outOfStock
     } = productdetails
 
+    
     return (
         <Link 
             to={`/shop/${id}`}  

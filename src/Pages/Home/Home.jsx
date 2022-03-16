@@ -5,8 +5,7 @@ import LibraryIllustration from "../..//Assets/Images/Library_Illustration_1.jpg
 import './Home.css'
 import {  
   GenreCard, 
-  newArrivalsProductList,
-  ProductCard,
+  NewArrivals,
   Footer 
 } from "../../index.js"
 import { useProductAvailable } from "../../Context/product-context"
@@ -53,7 +52,7 @@ function Home() {
         <Link to={"/shop"}> 
             <GenreCard genretype="Romance"/>
         </Link>
-        <Link to={"/shop"}> 
+        <Link to={"/shop"} state={{navigate: true}}> 
             <GenreCard genretype="Manga"/>
         </Link>
 
@@ -76,15 +75,7 @@ function Home() {
       </Link>
 
       <h1 className='homepage-headings'>New Arrivals</h1>
-      <div className='new-arrivals-container'>
-        {
-          newArrivalsProductList.map( product=> 
-            (
-              <ProductCard key={product.id} productdetails={product}/>
-            )
-          )
-        }
-      </div>
+      <NewArrivals/>
       <Footer/>
 
     </div>
