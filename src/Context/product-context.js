@@ -277,7 +277,7 @@ let ProductsProvider = ({children}) =>
     useEffect(() => {
       try {
         (async () => {
-            const productsAvailableData = await axios.get('http://localhost:1337/api/products')
+            const productsAvailableData = await axios.get('https://bookztron.herokuapp.com/api/products')
             productList = [...productsAvailableData.data.productsList]
         }) ()
       }

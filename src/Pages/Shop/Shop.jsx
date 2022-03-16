@@ -45,7 +45,7 @@ function Shop(props) {
         //Redo api call to get data
         try {
           (async () => {
-            const productsAvailableData = await axios.get('http://localhost:1337/api/products')
+            const productsAvailableData = await axios.get('https://bookztron.herokuapp.com/api/products')
             dispatchSortedProductsList({type:"ADD_ITEMS_TO_PRODUCTS_AVAILABLE_LIST", payload: [...productsAvailableData.data.productsList] })
           }) ()
         }
