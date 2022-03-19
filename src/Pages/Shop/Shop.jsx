@@ -45,7 +45,7 @@ function Shop(props) {
         //Redo api call to get data
         try {
           (async () => {
-            const productsAvailableData = await axios.get('https://bookztron.herokuapp.com/api/products')
+            const productsAvailableData = await axios.get('https://bookztron.herokuapp.com/api/home/products')
             dispatchSortedProductsList({type:"ADD_ITEMS_TO_PRODUCTS_AVAILABLE_LIST", payload: [...productsAvailableData.data.productsList] })
           }) ()
         }
@@ -66,7 +66,7 @@ function Shop(props) {
                             productsAvailableList && 
                             (
                                 productsAvailableList.map(productdetails => (
-                                    <ProductCard key={productdetails.id} productdetails={productdetails} />
+                                    <ProductCard key={productdetails._id} productdetails={productdetails} />
                                 ))
                             )
                         }
