@@ -2,9 +2,12 @@ import React, { useState } from "react"
 import "./UserAuth.css"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
+import { useToast } from "../../Context/toast-context"
 
 function Signup()
 {
+    const { showToast } = useToast()
+
     const [termsAndConditionsCheckbox, setTermsAndConditionsCheckbox] = useState(false)
     const [newUserName     , setNewUserName]     = useState('')
     const [newUserEmail    , setNewUserEmail]    = useState('')
@@ -27,10 +30,17 @@ function Signup()
             if(res.data.status==='ok')
             {
                 //User created successfully, navigate to Login Page
+                showToast("success","","New user created successfully")
                 navigate('/login')
             }
+            else
+            {
+                throw new Error("Error occured while creating new user")
+            }
         })
-        .catch(err=>{console.log(err)})
+        .catch(err=>{
+            showToast("error","","Error creating new user. Please try again")
+        })
     }
 
     return (

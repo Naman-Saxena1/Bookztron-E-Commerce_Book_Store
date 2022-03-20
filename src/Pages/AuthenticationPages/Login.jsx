@@ -2,9 +2,12 @@ import React, { useState } from "react"
 import "./UserAuth.css"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
+import { useToast } from "../../Context/toast-context"
 
 function Login()
 {
+    const { showToast } = useToast()
+
     const [userEmail    , setUserEmail]    = useState('')
     const [userPassword , setUserPassword] = useState('')
 
@@ -24,16 +27,19 @@ function Login()
             
             if(res.data.user)
             {
-              localStorage.setItem('token',res.data.user)
-              navigate('/shop')
+                localStorage.setItem('token',res.data.user)
+                showToast("success","","Logged in successfully")
+                navigate('/shop')
             }
             else
             {
-              console.log('Please check your username and password')
+                throw new Error("Error in user login")
             }
 
         })
-        .catch(err=>{console.log(err)})
+        .catch(err=>{
+            showToast("error","","Error logging in user. Please try again")
+        })
     }
 
     return (
