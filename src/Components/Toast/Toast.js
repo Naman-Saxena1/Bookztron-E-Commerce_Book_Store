@@ -1,5 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
-import * as styles from './Toast.css'
+import { useCallback, useEffect} from 'react'
 import { useToast } from "../../Context/toast-context"
 
 function Toast({ position })
