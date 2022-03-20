@@ -3,9 +3,11 @@ import "./UserAuth.css"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 import { useToast } from "../../Context/toast-context"
+import { useUserLogin } from "../../Context/user-login-context"
 
 function Login()
 {
+    const { setUserLoggedIn } = useUserLogin()
     const { showToast } = useToast()
 
     const [userEmail    , setUserEmail]    = useState('')
@@ -29,6 +31,7 @@ function Login()
             {
                 localStorage.setItem('token',res.data.user)
                 showToast("success","","Logged in successfully")
+                setUserLoggedIn(true)
                 navigate('/shop')
             }
             else
