@@ -5,9 +5,10 @@ import { ProductPage } from "./Pages/ProductPage/ProductPage"
 import { Login } from "./Pages/AuthenticationPages/Login"
 import { Signup } from "./Pages/AuthenticationPages/Signup"
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import { Navbar } from "./index"
+import { Navbar, Toast } from "./index"
 
 function App() {
+
   return (
     <Router>
       <div className="App">
@@ -19,6 +20,7 @@ function App() {
           <Route path="/login"          element={<Login/>} />
           <Route path="/signup"         element={<Signup/>} />
         </Routes>
+        <Toast position="bottom-right"/>
       </div>
     </Router>
   );
