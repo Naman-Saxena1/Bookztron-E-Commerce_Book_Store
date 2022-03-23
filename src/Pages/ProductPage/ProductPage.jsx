@@ -1,13 +1,23 @@
 import React from "react";
 import "./ProductPage.css"
+import axios from "axios";
+import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom"
 import { useParams } from "react-router-dom";
+import { useToast } from "../../Context/toast-context"
+import { useWishlist } from "../../Context/wishlist-context"
 
 function ProductPage()
 {
+    const navigate = useNavigate()
+
+    const { dispatchUserWishlist } = useWishlist()
+    const { showToast } = useToast()
     const { id } = useParams()
     const productDetailsOnStorage = localStorage.getItem(`${id}`)
-    const productDetails = JSON.parse(productDetailsOnStorage)
+    const productdetails = JSON.parse(productDetailsOnStorage)
     const {
+        _id,
         bookName,
         author,
         originalPrice,
@@ -19,8 +29,49 @@ function ProductPage()
         outOfStock,
         rating, 
         description
-    } = productDetails
-    
+    } = productdetails
+
+    async function addItemToWishlist()
+    {
+        const token=localStorage.getItem('token')
+
+        if(token)
+        {
+            const user = jwt_decode(token)
+            
+            if(!user)
+            {
+                localStorage.removeItem('token')
+                showToast("warning","","Kindly Login")
+                navigate('/login')
+            }
+            else
+            {
+                let wishlistUpdateResponse = await axios.patch(
+                    "https://bookztron.herokuapp.com/api/wishlist",
+                    {
+                        productdetails
+                    },
+                    {
+                        headers:
+                        {
+                            'x-access-token': localStorage.getItem('token'),
+                        }
+                    }
+                )
+        
+                if(wishlistUpdateResponse.data.status==="ok")
+                {
+                    dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: wishlistUpdateResponse.data.user.wishlist})
+                    showToast("success","","Item successfully added to wishlist")
+                }
+            }
+        }
+        else
+        {
+            showToast("warning","","Kindly Login")
+        } 
+    }
 
     return (
         <div className="product-page-container">
@@ -49,8 +100,18 @@ function ProductPage()
                         )
                         : (
                             <div className="item-buttons">
-                                <button className="solid-primary-btn">Add to wishlist</button>
-                                <button className="solid-warning-btn">Add to cart</button>
+                                <button
+                                    onClick={(event)=>{
+                                        event.preventDefault();
+                                        console.log("Add this item to wishlist!")
+                                        addItemToWishlist()
+                                    }}  
+                                    className="solid-primary-btn">
+                                        Add to wishlist
+                                </button>
+                                <button className="solid-warning-btn">
+                                    Add to cart
+                                </button>
                             </div>
                         )
                     }
