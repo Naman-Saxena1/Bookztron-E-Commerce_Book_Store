@@ -6,7 +6,7 @@ import HeartLottie from "../../Assets/Icons/heart.json"
 
 function Wishlist()
 {
-    const { userWishlist, dispatchUserWishlist } = useWishlist()
+    const { userWishlist } = useWishlist()
     let heartObj = {
         loop: true,
         autoplay: true,
