@@ -2,15 +2,12 @@ import React, { useEffect } from 'react'
 import './Navbar.css'
 import { Link } from "react-router-dom"
 import jwt_decode from "jwt-decode";
-import { useUserLogin } from "../../Context/user-login-context"
-import { useToast } from "../../Context/toast-context"
-import { useWishlist } from "../../Context/wishlist-context"
+import { useUserLogin, useToast, useWishlist } from "../../index"
 
 function Navbar() {
 
     const { userWishlist, dispatchUserWishlist } = useWishlist()
-
-    const { userLoggedIn, setUserLoggedIn } = useUserLogin(false)
+    const { setUserLoggedIn } = useUserLogin(false)
     const { showToast } = useToast()
 
     useEffect(()=>{

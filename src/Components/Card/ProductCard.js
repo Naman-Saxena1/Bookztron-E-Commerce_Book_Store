@@ -6,13 +6,12 @@ import './ProductCard.css'
 import { useToast } from '../../Context/toast-context';
 import { useWishlist } from '../../Context/wishlist-context';
 
-export default function ProductCard(props) 
+export default function ProductCard({ productdetails }) 
 {
     const navigate = useNavigate()
 
     const { userWishlist, dispatchUserWishlist } = useWishlist()
     const { showToast } = useToast()
-    const { productdetails } = props;
     const {
         _id, 
         bookName,
@@ -29,7 +28,7 @@ export default function ProductCard(props)
     const [wishlistBtn, setWishlistBtn]             = useState("add-to-wishlist-btn")
 
     useEffect(()=>{
-        let index = userWishlist.findIndex(product=> {
+        const index = userWishlist.findIndex(product=> {
             return product._id === productdetails._id
         })
 
