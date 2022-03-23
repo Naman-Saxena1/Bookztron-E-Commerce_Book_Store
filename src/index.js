@@ -6,6 +6,7 @@ import { GenreProvider } from "./Context/genre-context"
 import { NewArrivalsProvider } from "./Context/new-arrival-context"
 import { ToastContextProvider } from './Context/toast-context';
 import { UserLoginContextProvider } from './Context/user-login-context'
+import { WishlistContextProvider } from './Context/wishlist-context';
 
 export { Navbar } from "./Components/Navbar/Navbar"
 export { GenreCard } from './Components/GenreCards/GenreCard'
@@ -18,15 +19,17 @@ export { Toast } from './Components/Toast/Toast'
 ReactDOM.render(
   <React.StrictMode>
     <UserLoginContextProvider>
-      <ToastContextProvider>
-        <NewArrivalsProvider>
-          <GenreProvider>
-            <ProductsProvider>
-              <App/>
-            </ProductsProvider>
-          </GenreProvider>
-        </NewArrivalsProvider>
-      </ToastContextProvider>
+      <WishlistContextProvider>
+        <ToastContextProvider>
+          <NewArrivalsProvider>
+            <GenreProvider>
+              <ProductsProvider>
+                <App/>
+              </ProductsProvider>
+            </GenreProvider>
+          </NewArrivalsProvider>
+        </ToastContextProvider>
+      </WishlistContextProvider>
     </UserLoginContextProvider>
   </React.StrictMode>,
   document.getElementById('root')

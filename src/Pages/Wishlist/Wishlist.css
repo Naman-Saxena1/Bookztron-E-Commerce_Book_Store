@@ -1,0 +1,17 @@
+.products-card-grid
+{
+    width: 100%;
+    display: grid;
+    padding: 2rem 12rem 12rem 12rem;
+    flex-grow: 1;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, 24rem);
+    justify-items: center;
+    justify-content: space-evenly;
+}
+
+.empty-wishlist-message-container
+{
+    margin-top: 10vh;
+    min-width: 31rem;
+}

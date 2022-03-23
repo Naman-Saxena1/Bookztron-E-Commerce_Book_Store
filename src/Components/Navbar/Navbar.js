@@ -1,17 +1,59 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Navbar.css'
 import { Link } from "react-router-dom"
+import jwt_decode from "jwt-decode";
 import { useUserLogin } from "../../Context/user-login-context"
 import { useToast } from "../../Context/toast-context"
+import { useWishlist } from "../../Context/wishlist-context"
 
 function Navbar() {
 
-    const { userLoggedIn, setUserLoggedIn } = useUserLogin()
+    const { userWishlist, dispatchUserWishlist } = useWishlist()
+
+    const { userLoggedIn, setUserLoggedIn } = useUserLogin(false)
     const { showToast } = useToast()
+
+    useEffect(()=>{
+        const token=localStorage.getItem('token')
+        if(token)
+        {
+            const user = jwt_decode(token)
+            
+            if(!user)
+            {
+                localStorage.removeItem('token')
+                setUserLoggedIn(false)
+            }
+            else
+            {
+                setUserLoggedIn(true)
+            }
+        }
+    },[])
+
+    useEffect(()=>{
+        function handleInvalidToken() {
+            if(localStorage.getItem('token')!==null)
+            {
+                setUserLoggedIn(true)
+            }
+            else
+            {
+                setUserLoggedIn(false)
+                dispatchUserWishlist({type:"UPDATE_USER_WISHLIST",payload:[]})
+            }
+        }
+        window.addEventListener("storage",handleInvalidToken)
+
+        return function cleanup() {
+            window.removeEventListener('storage', handleInvalidToken)
+        }
+    })
 
     function logoutUser()
     {
         localStorage.removeItem('token')
+        dispatchUserWishlist({type:"UPDATE_USER_WISHLIST",payload:[]})
         showToast("success","","Logged out successfully")
         setUserLoggedIn(false)
     }
@@ -32,7 +74,7 @@ function Navbar() {
             </div>
             <div className="right-topbar-container">
                 {
-                    userLoggedIn===true
+                    localStorage.getItem('token')!==null
                     ? (
                         <button onClick={logoutUser} className="navbar-login-btn solid-primary-btn">Logout</button>
                     )
@@ -42,13 +84,18 @@ function Navbar() {
                         </Link>
                     )
                 }
-                <button id="my-wishlist-btn" className="icon-btn">
-                    <div className="icon-count-badge">
-                        <i className="fa fa-heart-o fa-x" aria-hidden="true" ></i>
-                        <span className="count-badge-x">4</span>
-                    </div>
-                </button>
-                <button id="my-cart-btn" className="icon-btn">
+                <Link to="/wishlist">
+                    <button className="icon-btn">
+                        <div className="icon-count-badge">
+                            <i className="fa fa-heart-o fa-x" aria-hidden="true" ></i>
+                            {
+                                userWishlist.length!==0 && JSON.parse(localStorage.getItem('userWishlist')).length!==0 
+                                && (<span className="count-badge-x">{JSON.parse(localStorage.getItem('userWishlist')).length}</span>)
+                            }
+                        </div>
+                    </button>
+                </Link>
+                <button className="icon-btn">
                     <div className="icon-count-badge">
                         <i className="fa fa-shopping-cart fa-x" aria-hidden="true" ></i>
                         <span className="count-badge-x">2</span>
