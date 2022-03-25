@@ -20,5 +20,11 @@
 
 .footer-list p
 {
+    color: var(--dull-grey);
     cursor: pointer;
+}
+
+.footer-list p:hover
+{
+    color: white;
 }

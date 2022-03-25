@@ -1,0 +1,96 @@
+.bill-heading
+{
+    width: 100%;
+}
+
+.cart-bill hr
+{
+    margin: 0;
+    width: 100%;
+}
+
+.cart-price-container, .cart-discount-container, .cart-delivery-charges-container, .cart-total-charges-container
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-price-container
+{
+    height: 10rem;
+}
+
+.cart-item-bookname
+{
+    padding: 1rem;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    word-break:keep-all;
+}
+
+.cart-item-quantity
+{
+    padding: 1rem;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-item-total-price
+{
+    padding: 1rem;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.place-order-btn
+{
+    width: 100%;
+    color: var(--pure-white);
+    background-color: var(--onlinestatus-or-success);
+}
+
+.place-order-btn 
+{
+    background-position: center;
+    transition: background 0.5s;
+}
+
+.place-order-btn:hover 
+{
+    background: var(--onlinestatus-or-success)
+                radial-gradient(circle, transparent 1%, 
+                                    var(--onlinestatus-or-success) 1%) center/15000%;
+}
+
+.place-order-btn:active 
+{
+    background-color: var(--onlinestatus-or-success);
+    background-size: 100%;
+    transition: background 0s;
+}
+
+.cart-item-total-discount, .cart-item-total-delivery-charges
+{
+    padding: 1rem;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    word-break:keep-all;
+}
+
+.cart-item-total-discount-amount, .cart-item-total-delivery-charges-amount
+{
+    padding: 1rem;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

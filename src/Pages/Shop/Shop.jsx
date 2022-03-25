@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
+import jwt_decode from "jwt-decode"
 import { useLocation } from "react-router-dom"
 import "./Shop.css"
 import { 
   Sidebar, 
-  ProductCard
+  ProductCard,
+  useWishlist,
+  useCart
 } from "../../index.js"
 import { useProductAvailable } from "../../Context/product-context"
 import axios from 'axios'
@@ -16,6 +19,8 @@ function Shop(props) {
       productFilterOptions 
     } = useProductAvailable()
 
+    const { dispatchUserWishlist } = useWishlist()
+    const { dispatchUserCart } = useCart()
     const { pathname } = useLocation();
   
     useEffect(() => {
@@ -53,6 +58,39 @@ function Shop(props) {
           console.log("Error : ", error);
         }
       }
+    },[])
+
+    useEffect(()=>{
+      const token=localStorage.getItem('token')
+
+      if(token)
+      {
+        const user = jwt_decode(token)
+        if(!user)
+        {
+            localStorage.removeItem('token')
+        }
+        else
+        {
+          (async function getUpdatedWishlistAndCart()
+          {
+            let updatedUserInfo = await axios.get(
+            "https://bookztron.herokuapp.com/api/user",
+            {
+              headers:
+              {
+                'x-access-token': localStorage.getItem('token'),
+              }
+            })
+
+            if(updatedUserInfo.data.status==="ok")
+            {
+              dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: updatedUserInfo.data.user.wishlist})
+              dispatchUserCart({type: "UPDATE_USER_CART",payload: updatedUserInfo.data.user.cart})
+            }
+          })()
+        }
+      }   
     },[])
 
     return (

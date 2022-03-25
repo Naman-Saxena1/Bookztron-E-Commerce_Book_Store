@@ -7,6 +7,7 @@ import { NewArrivalsProvider } from "./Context/new-arrival-context"
 import { ToastContextProvider } from './Context/toast-context';
 import { UserLoginContextProvider } from './Context/user-login-context'
 import { WishlistContextProvider } from './Context/wishlist-context';
+import { CartContextProvider } from './Context/cart-context';
 
 export { useProductAvailable } from "./Context/product-context"
 export { useGenre } from "./Context/genre-context"
@@ -14,14 +15,17 @@ export { useNewArrivals } from "./Context/new-arrival-context"
 export { useToast } from './Context/toast-context';
 export { useUserLogin } from './Context/user-login-context'
 export { useWishlist } from './Context/wishlist-context';
+export { useCart } from "./Context/cart-context"
 
 export { Navbar } from "./Components/Navbar/Navbar"
 export { GenreCard } from './Components/GenreCards/GenreCard'
 export { NewArrivals } from "./Components/NewArrivals/NewArrival"
 export { ProductCard } from "./Components/Card/ProductCard"
+export { HorizontalProductCard } from "./Components/HorizontalCard/HorizontalProductCard"
 export { Footer } from "./Components/Footer/Footer"
 export { Sidebar } from './Components/Sidebar/Sidebar'
 export { Toast } from './Components/Toast/Toast'
+export { ShoppingBill } from './Components/ShoppingBill/ShoppingBill'
 
 export { Home } from "./Pages/Home/Home"
 export { Login } from "./Pages/AuthenticationPages/Login"
@@ -29,20 +33,23 @@ export { Signup } from "./Pages/AuthenticationPages/Signup"
 export { ProductPage } from "./Pages/ProductPage/ProductPage"
 export { Shop } from "./Pages/Shop/Shop"
 export { Wishlist } from "./Pages/Wishlist/Wishlist"
+export { Cart } from "./Pages/Cart/Cart"
 
 ReactDOM.render(
   <React.StrictMode>
     <UserLoginContextProvider>
       <WishlistContextProvider>
-        <ToastContextProvider>
-          <NewArrivalsProvider>
-            <GenreProvider>
-              <ProductsProvider>
-                <App/>
-              </ProductsProvider>
-            </GenreProvider>
-          </NewArrivalsProvider>
-        </ToastContextProvider>
+        <CartContextProvider>
+          <ToastContextProvider>
+            <NewArrivalsProvider>
+              <GenreProvider>
+                <ProductsProvider>
+                  <App/>
+                </ProductsProvider>
+              </GenreProvider>
+            </NewArrivalsProvider>
+          </ToastContextProvider>
+        </CartContextProvider>
       </WishlistContextProvider>
     </UserLoginContextProvider>
   </React.StrictMode>,

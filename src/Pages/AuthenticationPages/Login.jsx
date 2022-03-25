@@ -1,19 +1,57 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import jwt_decode from "jwt-decode"
 import "./UserAuth.css"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
-import { useToast } from "../../Context/toast-context"
-import { useUserLogin } from "../../Context/user-login-context"
-import { useWishlist } from "../../Context/wishlist-context"
+import { 
+    useToast, 
+    useUserLogin, 
+    useWishlist,
+    useCart 
+} from "../../index"
 
 function Login()
 {
-    const { setUserLoggedIn } = useUserLogin()
-    const { showToast } = useToast()
-    const { dispatchUserWishlist } = useWishlist()
+    const { setUserLoggedIn }       = useUserLogin()
+    const { showToast }             = useToast()
+    const { dispatchUserWishlist }  = useWishlist()
+    const { dispatchUserCart }      = useCart()
 
     const [userEmail    , setUserEmail]    = useState('')
     const [userPassword , setUserPassword] = useState('')
+
+    useEffect(()=>{
+        const token=localStorage.getItem('token')
+
+        if(token)
+        {
+            const user = jwt_decode(token)
+            if(!user)
+            {
+                localStorage.removeItem('token')
+            }
+            else
+            {
+                (async function getUpdatedWishlistAndCart()
+                {
+                    let updatedUserInfo = await axios.get(
+                    "https://bookztron.herokuapp.com/api/user",
+                    {
+                        headers:
+                        {
+                        'x-access-token': localStorage.getItem('token'),
+                        }
+                    })
+
+                    if(updatedUserInfo.data.status==="ok")
+                    {
+                        dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: updatedUserInfo.data.user.wishlist})
+                        dispatchUserCart({type: "UPDATE_USER_CART",payload: updatedUserInfo.data.user.cart})
+                    }
+                })()
+            }
+        }   
+    },[])
 
     const navigate = useNavigate()
 
@@ -35,6 +73,7 @@ function Login()
                 showToast("success","","Logged in successfully")
                 setUserLoggedIn(true)
                 dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: res.data.wishlist})
+                dispatchUserCart({type: "UPDATE_USER_CART",payload: res.data.cart})
                 navigate('/shop')
             }
             else
