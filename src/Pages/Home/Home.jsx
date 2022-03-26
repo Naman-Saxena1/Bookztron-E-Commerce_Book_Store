@@ -1,18 +1,24 @@
 import React,{ useEffect } from 'react'
 import { Link } from "react-router-dom"
+import axios from "axios"
 import { useLocation } from "react-router-dom"
 import LibraryIllustration from "../..//Assets/Images/Library_Illustration_1.jpg"
 import './Home.css'
+import jwt_decode from "jwt-decode"
 import {  
   GenreCard, 
   NewArrivals,
-  Footer 
+  Footer,
+  useWishlist,
+  useCart 
 } from "../../index.js"
 import { useProductAvailable } from "../../Context/product-context"
 import { useGenre } from "../../Context/genre-context"
 
 function Home() {
   const { dispatchProductFilterOptions } = useProductAvailable()
+  const { dispatchUserWishlist } = useWishlist()
+  const { dispatchUserCart } = useCart()
   const {
     setFictionCategoryCheckbox,
     setThrillerCategoryCheckbox,
@@ -27,6 +33,39 @@ function Home() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  useEffect(()=>{
+      const token=localStorage.getItem('token')
+
+      if(token)
+      {
+          const user = jwt_decode(token)
+          if(!user)
+          {
+              localStorage.removeItem('token')
+          }
+          else
+          {
+              (async function getUpdatedWishlistAndCart()
+              {
+                  let updatedUserInfo = await axios.get(
+                  "https://bookztron.herokuapp.com/api/user",
+                  {
+                      headers:
+                      {
+                      'x-access-token': localStorage.getItem('token'),
+                      }
+                  })
+
+                  if(updatedUserInfo.data.status==="ok")
+                  {
+                      dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: updatedUserInfo.data.user.wishlist})
+                      dispatchUserCart({type: "UPDATE_USER_CART",payload: updatedUserInfo.data.user.cart})
+                  }
+              })()
+          }
+      }   
+  },[])
 
   return (
     <div className='home-component-container'>

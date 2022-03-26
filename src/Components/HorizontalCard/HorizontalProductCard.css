@@ -1,0 +1,20 @@
+.price-details
+{
+    text-align: left;
+}
+
+.card-basic-horizontal #item-title
+{
+    text-align: left;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-basic-horizontal .item-author
+{
+    text-align: left;
+    font-style: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

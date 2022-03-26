@@ -10,43 +10,40 @@ import {
   ProductPage,
   Login,
   Signup,
-  Wishlist
+  Wishlist,
+  Cart,
+  useUserLogin,
+  useWishlist,
+  useCart
 } from "./index"
-import { useUserLogin } from "./Context/user-login-context"
-import { useWishlist } from "./Context/wishlist-context"
 
 function App() {
 
-  const { dispatchUserWishlist } = useWishlist()
   const { userLoggedIn } = useUserLogin()
+  const { dispatchUserWishlist } = useWishlist()
+  const { dispatchUserCart } = useCart()
 
-  useLayoutEffect(()=>{
-    localStorage.setItem('userWishlist',JSON.stringify([]))
-  },[])
+  // async function getUpdatedWishlistAndCart()
+  // {
+  //   console.log("getUpdatedList called!")
+  //   if(userLoggedIn)
+  //     {
+  //     let updatedUserInfo = await axios.get(
+  //     "https://bookztron.herokuapp.com/api/user",
+  //     {
+  //       headers:
+  //       {
+  //         'x-access-token': localStorage.getItem('token'),
+  //       }
+  //     })
 
-  useEffect(()=>{
-    window.addEventListener("storage", getUpdatedWishlist)
-  })
-
-  async function getUpdatedWishlist()
-  {
-    if(userLoggedIn)
-      {
-      let wishlistUpdateResponse = await axios.get(
-      "https://bookztron.herokuapp.com/api/wishlist",
-      {
-        headers:
-        {
-          'x-access-token': localStorage.getItem('token'),
-        }
-      })
-
-      if(wishlistUpdateResponse.data.status==="ok")
-      {
-          dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: wishlistUpdateResponse.data.user.wishlist})
-      }
-    }
-  }
+  //     if(updatedUserInfo.data.status==="ok")
+  //     {
+  //         dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: updatedUserInfo.data.user.wishlist})
+  //         dispatchUserCart({type: "UPDATE_USER_CART",payload: updatedUserInfo.data.user.cart})
+  //     }
+  //   }
+  // }
 
   return (
     <Router>
@@ -59,6 +56,7 @@ function App() {
           <Route path="/login"          element={<Login/>} />
           <Route path="/signup"         element={<Signup/>} />
           <Route path="/wishlist"       element={<Wishlist/>} />
+          <Route path="/cart"           element={<Cart/>} />
         </Routes>
         <Toast position="bottom-right"/>
       </div>

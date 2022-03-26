@@ -7,7 +7,6 @@ const updateWishlistFunc = (state,action) => {
     {
         case "UPDATE_USER_WISHLIST" : 
             {
-                localStorage.setItem('userWishlist',JSON.stringify(action.payload))
                 return [...action.payload]
             }
         default : return [...state] 

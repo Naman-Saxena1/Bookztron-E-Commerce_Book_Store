@@ -2,11 +2,13 @@ import React, { useEffect } from 'react'
 import './Navbar.css'
 import { Link } from "react-router-dom"
 import jwt_decode from "jwt-decode";
-import { useUserLogin, useToast, useWishlist } from "../../index"
+import { useUserLogin, useToast, useWishlist, useCart } from "../../index"
+import { BsShopWindow } from "react-icons/bs"
 
 function Navbar() {
 
     const { userWishlist, dispatchUserWishlist } = useWishlist()
+    const { userCart, dispatchUserCart } = useCart()
     const { setUserLoggedIn } = useUserLogin(false)
     const { showToast } = useToast()
 
@@ -38,6 +40,7 @@ function Navbar() {
             {
                 setUserLoggedIn(false)
                 dispatchUserWishlist({type:"UPDATE_USER_WISHLIST",payload:[]})
+                dispatchUserCart({type:"UPDATE_USER_CART",payload:[]})
             }
         }
         window.addEventListener("storage",handleInvalidToken)
@@ -45,16 +48,20 @@ function Navbar() {
         return function cleanup() {
             window.removeEventListener('storage', handleInvalidToken)
         }
-    })
+    },[userWishlist,userCart])
 
     function logoutUser()
     {
         localStorage.removeItem('token')
         dispatchUserWishlist({type:"UPDATE_USER_WISHLIST",payload:[]})
-        showToast("success","","Logged out successfully")
+        dispatchUserCart({type:"UPDATE_USER_CART",payload:[]})
         setUserLoggedIn(false)
+        localStorage.clear()
+        showToast("success","","Logged out successfully")
     }
 
+    console.log(userCart)
+    
     return (
         <div className="top-bar">
             <div className="left-topbar-container">
@@ -81,23 +88,35 @@ function Navbar() {
                         </Link>
                     )
                 }
+                <Link to="/shop">
+                    <button className="icon-btn">
+                        <div>
+                            <BsShopWindow/>
+                        </div>
+                    </button>
+                </Link>
                 <Link to="/wishlist">
                     <button className="icon-btn">
                         <div className="icon-count-badge">
                             <i className="fa fa-heart-o fa-x" aria-hidden="true" ></i>
                             {
-                                userWishlist.length!==0 && JSON.parse(localStorage.getItem('userWishlist')).length!==0 
-                                && (<span className="count-badge-x">{JSON.parse(localStorage.getItem('userWishlist')).length}</span>)
+                                userWishlist.length!==0
+                                && (<span className="count-badge-x">{userWishlist.length}</span>)
                             }
                         </div>
                     </button>
                 </Link>
-                <button className="icon-btn">
-                    <div className="icon-count-badge">
-                        <i className="fa fa-shopping-cart fa-x" aria-hidden="true" ></i>
-                        <span className="count-badge-x">2</span>
-                    </div>
-                </button>
+                <Link to="/cart">
+                    <button className="icon-btn">
+                        <div className="icon-count-badge">
+                            <i className="fa fa-shopping-cart fa-x" aria-hidden="true" ></i>
+                            {
+                                userCart.length!==0
+                                && (<span className="count-badge-x">{userCart.length}</span>)
+                            }
+                        </div>
+                    </button>
+                </Link>
             </div>
         </div>
     )

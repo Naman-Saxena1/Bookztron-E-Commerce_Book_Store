@@ -1,26 +1,25 @@
-import "./Wishlist.css"
-import jwt_decode from "jwt-decode";
-import axios from "axios"
-import { Link, useNavigate } from "react-router-dom"
-import {  } from "../../Context/wishlist-context"
+import "./Cart.css"
+import { useEffect } from "react";
+import jwt_decode from "jwt-decode"
+import axios from "axios";
+import { Link } from "react-router-dom"
 import { 
-    ProductCard,
-    useWishlist,
-    useCart 
+    useWishlist, 
+    useCart, 
+    HorizontalProductCard,
+    ShoppingBill 
 } from "../../index"
 import Lottie from 'react-lottie';
-import HeartLottie from "../../Assets/Icons/heart.json"
-import { useEffect } from "react";
+import CartLottie from "../../Assets/Icons/cart.json"
 
-function Wishlist()
+function Cart()
 {
-    const { userWishlist, dispatchUserWishlist } = useWishlist()
-    const { dispatchUserCart } = useCart()
-
-    let heartObj = {
+    const { dispatchUserWishlist } = useWishlist()
+    const { userCart, dispatchUserCart } = useCart()
+    let cartObj = {
         loop: true,
         autoplay: true,
-        animationData : HeartLottie,
+        animationData : CartLottie,
         rendererSettings: {
           preserveAspectRatio: 'xMidYMid slice'
         }
@@ -56,38 +55,48 @@ function Wishlist()
                     }
                 })()
             }
+        }
+        else
+        {
+            dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: []})
+            dispatchUserCart({type: "UPDATE_USER_CART",payload: []})
         }   
     },[])
 
     return (
-        <div className="wishlist-container">
-            <h2>{userWishlist.length} {userWishlist.length===1?"item":"items"} in Wishlist</h2>
-            <div className="products-card-grid">
-                {
-                    JSON.stringify(userWishlist)!==JSON.stringify([]) 
-                    ? (
-                        userWishlist.map(productdetails => (
-                            <ProductCard key={productdetails._id} productdetails={productdetails} />
-                        ))
-                    )
-                    : (
-                        <div className="empty-wishlist-message-container">
-                            <Lottie options={heartObj}
+        <div className="cart-content-container">
+            <h2>{userCart.length} items in Cart</h2>
+            {
+                userCart.length === 0
+                ? (
+                    <div className="empty-cart-message-container">
+                            <Lottie options={cartObj}
                                 height={150}
                                 width={150}
                                 isStopped={false}
                                 isPaused={false}
                             />
-                            <h2>Your wishlist is empty 🙃</h2>
+                            <h2>Your cart is empty 🙃</h2>
                             <Link to="/shop">
                                 <button className=" solid-primary-btn">Go to shop</button>
                             </Link>
+                    </div>
+                )
+                : (
+                    <div className="cart-grid">
+                        <div className="cart-items-grid">
+                            {
+                                userCart.map( (productDetails, index)=>    
+                                    <HorizontalProductCard key={index} productDetails={productDetails}/>
+                                )
+                            }
                         </div>
-                    )
-                }
-            </div>
+                        <ShoppingBill/>
+                    </div>
+                )
+            }
         </div>
     )
 }
 
-export { Wishlist }
+export { Cart }

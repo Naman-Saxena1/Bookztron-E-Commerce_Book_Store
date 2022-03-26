@@ -1,3 +1,8 @@
+.wishlist-container
+{
+    margin-top: 5rem;
+}
+
 .products-card-grid
 {
     width: 100%;
@@ -12,6 +17,5 @@
 
 .empty-wishlist-message-container
 {
-    margin-top: 10vh;
     min-width: 31rem;
 }

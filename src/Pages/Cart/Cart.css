@@ -1,0 +1,139 @@
+.empty-cart-message-container
+{
+    margin-top: 2rem;
+    min-width: 31rem;
+}
+
+.cart-content-container
+{
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* min-height: 100vh; */
+    padding: 3rem;
+}
+
+.cart-grid
+{
+    display: grid;
+    width: 80%;
+    min-width: fit-content;
+    padding: 2rem;
+    gap: 2rem;
+    grid-template-columns: repeat( 4 , 1fr );
+}
+
+.cart-items-grid
+{
+    grid-column: 1/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+.card-basic-horizontal
+{
+    min-width: 50.9rem;
+    max-width: 100%;
+    justify-content: space-between;
+    padding-left: 2rem;
+    margin: 0 auto;
+    border-radius: 0;
+}
+
+.outline-card-secondary-btn.card-dismiss-btn
+{
+    padding:0.5rem 0.789rem;
+    right: 3px;
+    border-radius: 50%;
+}
+
+.card-basic-horizontal h3
+{
+    margin: 0;
+}
+
+.cart-item-book-img
+{
+    max-height: 100%;
+}
+
+#cart-item-detail
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 28.14rem;
+    height: 25.2rem;
+    padding: 0 0 0 0;
+}
+
+.cart-quantity-para
+{
+    display: inline;
+    margin: 0;
+}
+
+.item-cart-quantity
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.cart-item-quantity-input
+{
+    outline: none;
+    width: 5rem;
+    margin: 0 1rem;
+    text-align: center;
+}
+
+.cart-horizontal-card-btns
+{
+    flex-direction: column;
+    gap:1rem;
+}
+
+.cart-horizontal-card-btns button
+{
+    margin: 0;
+}
+
+.cart-bill
+{
+    width: 50.9rem;
+    height: fit-content;
+    grid-column: 3/5;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: black;
+    background-color: white;
+    border: 1px solid rgb(211, 211, 211);
+}
+
+@media only screen and (max-width:1125px)
+{
+
+    .cart-bill
+    {
+        grid-column: 2/4;
+        grid-row: 2/4;
+    }
+
+    .cart-items-grid
+    {
+        grid-column: 2/4;
+        grid-row: 4/auto;
+    }
+}
