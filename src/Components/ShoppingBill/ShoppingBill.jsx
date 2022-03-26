@@ -1,7 +1,4 @@
-import { useEffect } from "react";
-import axios from "axios";
 import "./ShoppingBill.css"
-import { useState } from "react"
 import { useCart, useToast } from "../../index"
 
 function ShoppingBill()
