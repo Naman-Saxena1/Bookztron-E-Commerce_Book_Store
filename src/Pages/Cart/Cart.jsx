@@ -55,6 +55,11 @@ function Cart()
                     }
                 })()
             }
+        }
+        else
+        {
+            dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: []})
+            dispatchUserCart({type: "UPDATE_USER_CART",payload: []})
         }   
     },[])
 

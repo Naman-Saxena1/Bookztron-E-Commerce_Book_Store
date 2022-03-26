@@ -40,7 +40,7 @@ function Navbar() {
             {
                 setUserLoggedIn(false)
                 dispatchUserWishlist({type:"UPDATE_USER_WISHLIST",payload:[]})
-                dispatchUserCart({type:"UPDATE_USER_WISHLIST",payload:[]})
+                dispatchUserCart({type:"UPDATE_USER_CART",payload:[]})
             }
         }
         window.addEventListener("storage",handleInvalidToken)
@@ -60,6 +60,8 @@ function Navbar() {
         showToast("success","","Logged out successfully")
     }
 
+    console.log(userCart)
+    
     return (
         <div className="top-bar">
             <div className="left-topbar-container">
