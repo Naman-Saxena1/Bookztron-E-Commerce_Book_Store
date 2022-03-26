@@ -21,7 +21,7 @@
     min-width: fit-content;
     padding: 2rem;
     gap: 2rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat( 4 , 1fr );
 }
 
 .cart-items-grid

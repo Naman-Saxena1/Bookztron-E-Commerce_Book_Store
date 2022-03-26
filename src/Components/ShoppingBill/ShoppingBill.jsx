@@ -12,7 +12,6 @@ function ShoppingBill()
 
     userCart.forEach(product=>{
         let discountOnCurrentProduct = ( (product.originalPrice - product.discountedPrice) * product.quantity )
-        console.log("Discount: ", discountOnCurrentProduct)
         totalDiscount = totalDiscount + discountOnCurrentProduct
         totalBill = totalBill + ( product.discountedPrice * product.quantity )
     })
