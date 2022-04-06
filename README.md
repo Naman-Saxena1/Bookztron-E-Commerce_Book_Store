@@ -67,22 +67,22 @@ You may also see any lint errors in the console.
 ## Screenshots
 
 ### Home Page
-[](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-HomePage-1.PNG)
-[](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-HomePage-2.PNG)
-[](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-HomePage-3.PNG)
+![](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-HomePage-1.PNG)
+![](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-HomePage-2.PNG)
+![](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-HomePage-3.PNG)
 
 ### Product Listing Page
-[Screenshot4](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-ProductListingPage-1.PNG)
+![](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-ProductListingPage-1.PNG)
 
 ### User Authentication Pages
-[](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-SignupPage-1.PNG)
-[](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-LoginPage-1.PNG)
+![](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-SignupPage-1.PNG)
+![](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-LoginPage-1.PNG)
 
 ### Single Product Page
-[](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-SingleProductPage-1.PNG)
+![](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-SingleProductPage-1.PNG)
 
 ### Wishlist Page
-[](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-WishlistPage-1.PNG)
+![](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-WishlistPage-1.PNG)
 
 ### Cart Page
-[](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-CartPage-1.PNG)
+![](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-CartPage-1.PNG)
