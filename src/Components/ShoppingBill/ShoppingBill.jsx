@@ -1,17 +1,28 @@
 import "./ShoppingBill.css"
+import { useState } from "react"
 import { useCart, useToast } from "../../index"
 
 function ShoppingBill()
 {
     const { userCart } = useCart()
     const { showToast } = useToast()
-    let totalDiscount = 0, totalBill = 0;
+    let totalDiscount = 0, totalBill = 0, finalBill = 0;
+    const [ couponName, setCouponName ] = useState("")
 
     userCart.forEach(product=>{
         let discountOnCurrentProduct = ( (product.originalPrice - product.discountedPrice) * product.quantity )
         totalDiscount = totalDiscount + discountOnCurrentProduct
         totalBill = totalBill + ( product.discountedPrice * product.quantity )
     })
+
+    if(couponName==="BOOKS200")
+    {
+        finalBill = totalBill - 200;
+    }
+    else
+    {
+        finalBill = totalBill;
+    }
 
     function placeOrder()
     {
@@ -69,8 +80,19 @@ function ShoppingBill()
                     <p><b>Total Charges</b></p>
                 </div>
                 <div className="cart-item-total-delivery-charges-amount" id="price-sum">
-                    <p id="total-charges"><b>&#8377; {totalBill}</b></p>
+                    <p id="total-charges"><b>&#8377; {finalBill}</b></p>
                 </div>
+            </div>
+
+            <hr></hr>
+
+            <div className="apply-coupon-container">
+                <p>Apply Coupon</p>
+                <input
+                    value={couponName}
+                    onChange={(event)=>setCouponName(event.target.value)}
+                    placeholder="Try BOOKS200"
+                ></input>
             </div>
 
             <button 

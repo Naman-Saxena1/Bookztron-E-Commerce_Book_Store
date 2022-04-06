@@ -3,13 +3,14 @@ import { useState } from "react"
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom"
-import { useToast, useCart } from "../../index"
+import { useToast, useCart, useWishlist } from "../../index"
 
 function HorizontalProductCard({productDetails})
 {
     const navigate = useNavigate()
 
     const { showToast } = useToast()
+    const { dispatchUserWishlist } = useWishlist()
     const { dispatchUserCart } = useCart()
     const {
         _id, 
@@ -24,6 +25,7 @@ function HorizontalProductCard({productDetails})
         outOfStock, 
         quantity
     } = productDetails;
+    const productdetails = productDetails;
 
     const [productQuantity, setProductQuantity] = useState(quantity)
 
@@ -96,6 +98,48 @@ function HorizontalProductCard({productDetails})
         } 
     }
 
+    async function addItemToWishlist()
+    {
+        const token=localStorage.getItem('token')
+
+        if(token)
+        {
+            const user = jwt_decode(token)
+            
+            if(!user)
+            {
+                localStorage.removeItem('token')
+                showToast("warning","","Kindly Login")
+                navigate('/login')
+            }
+            else
+            {
+                const wishlistUpdateResponse = await axios.patch(
+                    "https://bookztron.herokuapp.com/api/wishlist",
+                    {
+                        productdetails
+                    },
+                    {
+                        headers:
+                        {
+                            'x-access-token': localStorage.getItem('token'),
+                        }
+                    }
+                )
+        
+                if(wishlistUpdateResponse.data.status==="ok")
+                {
+                    dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: wishlistUpdateResponse.data.user.wishlist})
+                    showToast("success","","Item successfully added to wishlist")
+                }
+            }
+        }
+        else
+        {
+            showToast("warning","","Kindly Login")
+        } 
+    }
+
     return (
         <div className="card-basic-horizontal">
             <img className="cart-item-book-img" src={imgSrc} alt={imgAlt}/>
@@ -128,7 +172,12 @@ function HorizontalProductCard({productDetails})
                     >
                         Remove from Cart
                     </button>
-                    {/* <button className="outline-primary-btn">Move to Wishlist</button> */}
+                    <button 
+                        className="outline-primary-btn"
+                        onClick={()=>addItemToWishlist()}
+                    >
+                        Add to Wishlist
+                    </button>
                 </div>
                 <div className="badge-on-card">
                     {badgeText}

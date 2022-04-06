@@ -49,9 +49,26 @@
     align-items: center;
 }
 
+.apply-coupon-container
+{
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.apply-coupon-container input
+{
+    padding: 2rem;
+    height: 2rem;
+    font-family: Comfortaa;
+}
+
 .place-order-btn
 {
     width: 100%;
+    margin: 0;
     color: var(--pure-white);
     background-color: var(--onlinestatus-or-success);
 }

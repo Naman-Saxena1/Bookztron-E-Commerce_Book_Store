@@ -1,0 +1,34 @@
+.card-basic
+{
+    height: 42rem;
+}
+
+.fa-heart
+{
+    overflow: hidden;
+    color: var(--red-color);
+}
+
+.added-to-wishlist-btn
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    border-radius: 50%;
+    margin: 0.8rem 1.1rem 0 0;
+}
+
+.added-to-wishlist-btn:hover
+{
+    background-color: var(--grey);
+}
+
+.add-wishlist-item-to-cart-btn
+{
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 0%;
+    position: absolute;
+    bottom: 0;
+}
