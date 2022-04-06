@@ -26,6 +26,7 @@ export { Footer } from "./Components/Footer/Footer"
 export { Sidebar } from './Components/Sidebar/Sidebar'
 export { Toast } from './Components/Toast/Toast'
 export { ShoppingBill } from './Components/ShoppingBill/ShoppingBill'
+export { WishlistProductCard } from './Components/WishlistProductCard/WishlistProductCard'
 
 export { Home } from "./Pages/Home/Home"
 export { Login } from "./Pages/AuthenticationPages/Login"

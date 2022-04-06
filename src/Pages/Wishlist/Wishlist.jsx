@@ -4,7 +4,7 @@ import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
 import {  } from "../../Context/wishlist-context"
 import { 
-    ProductCard,
+    WishlistProductCard,
     useWishlist,
     useCart 
 } from "../../index"
@@ -67,7 +67,7 @@ function Wishlist()
                     JSON.stringify(userWishlist)!==JSON.stringify([]) 
                     ? (
                         userWishlist.map(productdetails => (
-                            <ProductCard key={productdetails._id} productdetails={productdetails} />
+                            <WishlistProductCard key={productdetails._id} productdetails={productdetails} />
                         ))
                     )
                     : (

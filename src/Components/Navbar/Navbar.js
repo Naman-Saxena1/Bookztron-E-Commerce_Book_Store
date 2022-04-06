@@ -59,8 +59,6 @@ function Navbar() {
         localStorage.clear()
         showToast("success","","Logged out successfully")
     }
-
-    console.log(userCart)
     
     return (
         <div className="top-bar">
