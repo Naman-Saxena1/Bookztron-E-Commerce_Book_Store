@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# This is Full Stack E-Commerce Project using MERN stack
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Link - [Bookztron](https://bookztron-dev-branch.netlify.app/)
 
 ## Available Scripts
 
@@ -14,57 +15,74 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+## Technologies used 
+1. HTML
+2. CSS
+3. JavaScript
+4. React
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node JS, Express JS and MongoDb is used for Backend server which is deployed on Heroku.
 
-### `npm run build`
+## Features:
+1. User Authentication (Signup, Login and Logout)
+2. Proper Landing page with categories and New Arrivals
+3. Product Listing Page
+4. Sort and filter products
+   - Sort by Price Low to High and High to Low
+   - Filter using Minimum and Maximum Price Range
+   - Filter by Book Genre Categories
+   - Filter by average product rating
+   - Filter to include/exclude out of stock products
+   - Filter products as per fast delivery availability
+   - Clear all filters
+5. Wishlist Management 
+   - Add / remove from the wishlist
+   - Add items to cart
+6. Cart Management 
+   - Add to cart 
+   - Change items quantity in cart 
+   - Remove from cart
+   - Add to wishlist from cart
+   - Apply Coupon
+7. Single Product Page
+8. Order Summary of the ordered items
+9. Custom Toast Component with 4 types - Success, Error, Warning and Information
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## You are welcome to contribute to this project 
+1. Create a personal fork of the project on Github.
+2. Clone the fork on your local machine. Your remote repo on Github is called origin.
+3. Add the original repository as a remote called upstream.
+4. If you created your fork a while ago be sure to pull upstream changes into your local repository.
+5. Create a new branch to work on! Branch from development branch.
+6. Implement/fix your feature, comment your code.
+7. Squash your commits into a single commit with git's interactive rebase. Create a new branch if necessary.
+8. Push your branch to your fork on Github, the remote origin.
+9. From your fork open a pull request in the correct branch. Target the project's development branch.
+10. Once the pull request is approved and merged you can pull the changes from upstream to your local repo and delete your extra branch(es).
+11. And last but not least: Always write your commit messages in the present tense. Your commit message should describe what the commit, when applied, does to the code – not what you did to the code.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## You can report issues on this project using Github issue 
+1. You can read more about this from [Github Docs](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Screenshots
 
-### `npm run eject`
+### Home Page
+[](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-HomePage-1.PNG)
+[](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-HomePage-2.PNG)
+[](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-HomePage-3.PNG)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Product Listing Page
+[Screenshot4](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-ProductListingPage-1.PNG)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### User Authentication Pages
+[](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-SignupPage-1.PNG)
+[](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-LoginPage-1.PNG)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Single Product Page
+[](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-SingleProductPage-1.PNG)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Wishlist Page
+[](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-WishlistPage-1.PNG)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Cart Page
+[](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-CartPage-1.PNG)
