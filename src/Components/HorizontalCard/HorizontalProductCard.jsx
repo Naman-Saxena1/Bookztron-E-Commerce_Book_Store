@@ -114,7 +114,7 @@ function HorizontalProductCard({productDetails})
             }
             else
             {
-                let wishlistUpdateResponse = await axios.patch(
+                const wishlistUpdateResponse = await axios.patch(
                     "https://bookztron.herokuapp.com/api/wishlist",
                     {
                         productdetails
