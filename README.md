@@ -1,6 +1,5 @@
 # This is Full Stack E-Commerce Project using MERN stack
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 Live Link - [Bookztron](https://bookztron-dev-branch.netlify.app/)
 
 ## Available Scripts
