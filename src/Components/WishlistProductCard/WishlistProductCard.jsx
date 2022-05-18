@@ -187,7 +187,7 @@ export default function WishlistProductCard({ productdetails })
             target="_blank"
             rel="noopener noreferrer"
         >
-            <div className="card-basic">
+            <div className="card-basic wishlist-card">
                 <img src={imgSrc} alt={imgAlt}/>
                 <div className="card-item-details">
                     <div className="item-title">

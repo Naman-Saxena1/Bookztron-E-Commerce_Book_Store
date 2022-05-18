@@ -1,11 +1,16 @@
 import "./ShoppingBill.css"
 import { useState } from "react"
-import { useCart, useToast } from "../../index"
+import { useNavigate } from "react-router-dom"
+import { useCart, useToast, useOrders } from "../../index"
+import axios from "axios"
+import { loadRazorpayScript } from "../../UtilityFunctions/loadRazorpayScript"
 
 function ShoppingBill()
 {
+    const navigate = useNavigate()
     const { userCart } = useCart()
     const { showToast } = useToast()
+    const { dispatchUserOrders }= useOrders()
     let totalDiscount = 0, totalBill = 0, finalBill = 0;
     const [ couponName, setCouponName ] = useState("")
 
@@ -24,9 +29,61 @@ function ShoppingBill()
         finalBill = totalBill;
     }
 
-    function placeOrder()
+    async function displayRazorPay()
     {
-        showToast("info","","Payment Integration is coming soon! 😉")
+        const res = await loadRazorpayScript("https://checkout.razorpay.com/v1/checkout.js")
+
+        if(!res)
+        {
+            showToast("error","","Razorpay SDK failed to load, kindly check internet connection!")
+            return;
+        }
+
+        let finalBillAmount = (finalBill*100).toString()
+
+        const dataResponse = await axios.post(
+            "https://bookztron.herokuapp.com/api/razorpay",
+            {
+                finalBillAmount
+            }
+        )
+
+        let data = dataResponse.data
+
+        var options = {
+            "key": "rzp_test_hyc3ht0ngvqOD5", 
+            "amount": data.amount, 
+            "currency": data.currency,
+            "name": "Bookztron",
+            "description": "Thank you for shopping!",
+            "image": "https://raw.githubusercontent.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/development/public/favicon-icon.png",
+            "order_id": data.id,
+            "handler": async function (response){
+                console.log(response)
+                showToast("success","","Payment Successful! 😎")
+                showToast("success","","Order added to your bag!")
+                console.log(userCart)
+                let newOrderItemsArray = userCart.map(orderItem=>{
+                    return {...orderItem, orderId: data.id}
+                })
+                let ordersUpdatedResponse = await axios.post(
+                    "https://bookztron.herokuapp.com/api/orders",
+                    {
+                        newOrderItemsArray
+                    },
+                    {
+                        headers : {'x-access-token': localStorage.getItem('token')}
+                    }
+                )
+                if(ordersUpdatedResponse.data.status==='ok')
+                {
+                    dispatchUserOrders({type: "UPDATE_USER_ORDERS",payload: ordersUpdatedResponse.data.user.orders})
+                    navigate('/orders')
+                }
+            }
+        };
+        var paymentObject = new window.Razorpay(options);
+        paymentObject.open();
     }
 
     return (
@@ -97,7 +154,7 @@ function ShoppingBill()
 
             <button 
                 className="place-order-btn solid-secondary-btn"
-                onClick={placeOrder}
+                onClick={displayRazorPay}
             >
                 Place Order
             </button>

@@ -1,6 +1,6 @@
-.card-basic
+.card-basic.wishlist-card
 {
-    height: 42rem;
+    height: 40rem;
 }
 
 .fa-heart

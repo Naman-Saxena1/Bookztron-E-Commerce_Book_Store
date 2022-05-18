@@ -2,13 +2,14 @@ import React, { useEffect } from 'react'
 import './Navbar.css'
 import { Link } from "react-router-dom"
 import jwt_decode from "jwt-decode";
-import { useUserLogin, useToast, useWishlist, useCart } from "../../index"
-import { BsShopWindow } from "react-icons/bs"
+import { useUserLogin, useToast, useWishlist, useCart, useOrders } from "../../index"
+import { BsShopWindow, BsFillBagFill } from "react-icons/bs"
 
 function Navbar() {
 
     const { userWishlist, dispatchUserWishlist } = useWishlist()
     const { userCart, dispatchUserCart } = useCart()
+    const { userOrders, dispatchUserOrders } = useOrders()
     const { setUserLoggedIn } = useUserLogin(false)
     const { showToast } = useToast()
 
@@ -41,6 +42,7 @@ function Navbar() {
                 setUserLoggedIn(false)
                 dispatchUserWishlist({type:"UPDATE_USER_WISHLIST",payload:[]})
                 dispatchUserCart({type:"UPDATE_USER_CART",payload:[]})
+                dispatchUserOrders({type:"UPDATE_USER_ORDERS",payload:[]})
             }
         }
         window.addEventListener("storage",handleInvalidToken)
@@ -55,6 +57,7 @@ function Navbar() {
         localStorage.removeItem('token')
         dispatchUserWishlist({type:"UPDATE_USER_WISHLIST",payload:[]})
         dispatchUserCart({type:"UPDATE_USER_CART",payload:[]})
+        dispatchUserOrders({type:"UPDATE_USER_ORDERS",payload:[]})
         setUserLoggedIn(false)
         localStorage.clear()
         showToast("success","","Logged out successfully")
@@ -112,6 +115,21 @@ function Navbar() {
                                 userCart.length!==0
                                 && (<span className="count-badge-x">{userCart.length}</span>)
                             }
+                        </div>
+                    </button>
+                </Link>
+                <Link to="/orders">
+                    <button className="icon-btn">
+                        <div className="icon-count-badge">
+                        <BsFillBagFill 
+                            style={{
+                                marginBottom:"4px"
+                            }}
+                        />
+                        {
+                            userOrders.length!==0
+                            && (<span className="count-badge-x">{userOrders.length}</span>)
+                        }
                         </div>
                     </button>
                 </Link>

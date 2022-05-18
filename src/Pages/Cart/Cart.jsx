@@ -14,7 +14,7 @@ import CartLottie from "../../Assets/Icons/cart.json"
 
 function Cart()
 {
-    const { dispatchUserWishlist } = useWishlist()
+    const { userWishlist, dispatchUserWishlist } = useWishlist()
     const { userCart, dispatchUserCart } = useCart()
     let cartObj = {
         loop: true,
@@ -37,23 +37,26 @@ function Cart()
             }
             else
             {
-                (async function getUpdatedWishlistAndCart()
+                if(userCart.length===0 || userWishlist.length===0)
                 {
-                    let updatedUserInfo = await axios.get(
-                    "https://bookztron.herokuapp.com/api/user",
+                    (async function getUpdatedWishlistAndCart()
                     {
-                        headers:
+                        let updatedUserInfo = await axios.get(
+                        "https://bookztron.herokuapp.com/api/user",
                         {
-                        'x-access-token': localStorage.getItem('token'),
-                        }
-                    })
+                            headers:
+                            {
+                            'x-access-token': localStorage.getItem('token'),
+                            }
+                        })
 
-                    if(updatedUserInfo.data.status==="ok")
-                    {
-                        dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: updatedUserInfo.data.user.wishlist})
-                        dispatchUserCart({type: "UPDATE_USER_CART",payload: updatedUserInfo.data.user.cart})
-                    }
-                })()
+                        if(updatedUserInfo.data.status==="ok")
+                        {
+                            dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: updatedUserInfo.data.user.wishlist})
+                            dispatchUserCart({type: "UPDATE_USER_CART",payload: updatedUserInfo.data.user.cart})
+                        }
+                    })()
+                }
             }
         }
         else
