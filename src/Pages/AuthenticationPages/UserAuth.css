@@ -5,16 +5,16 @@ body
 
 .user-auth-content-container
 {
-    /* max-height: fit-content; */
-    min-height: 110%;
-    width: fit-content;
-    padding: 2rem;
-    margin: auto;
+    width: 100%;
+    min-height: calc(100vh - 107.23px);
+    background: url('../../Assets/Images/Library_pic1.jpg');
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    color: var(--royal-blue);
-    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
 }
 
 .user-auth-form
