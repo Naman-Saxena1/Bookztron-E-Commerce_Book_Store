@@ -55,7 +55,6 @@ function Orders()
                             'x-access-token': localStorage.getItem('token'),
                             }
                         })
-                        console.log(updatedUserInfo.data.user.orders)
                         if(updatedUserInfo.data.status==="ok")
                         {
                             dispatchUserOrders({type: "UPDATE_USER_ORDERS",payload: updatedUserInfo.data.user.orders})                   
@@ -77,7 +76,7 @@ function Orders()
         {
             dispatchUserOrders({type: "UPDATE_USER_ORDERS",payload: []})
         }   
-    })
+    },[])
 
     return (
         <div className="orders-content-container">

@@ -3,10 +3,11 @@ import { useState } from "react"
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom"
-import { useToast } from "../../index"
+import { useToast, useOrders } from "../../index"
 
 function ProductOrderCard({productDetails})
 {
+    const { dispatchUserOrders } = useOrders()
     const navigate = useNavigate()
 
     const { showToast } = useToast()
@@ -24,6 +25,22 @@ function ProductOrderCard({productDetails})
         quantity,
         orderId
     } = productDetails;
+
+    const removeItemFromOrders = async () => {
+        let updatedUserInfo = await axios.patch(
+            `https://bookztron.herokuapp.com/api/orders/${_id}`,
+            {
+                orderId
+            },
+            {
+                headers : {'x-access-token': localStorage.getItem('token')}
+            }
+        )
+        if(updatedUserInfo.data.status==="ok")
+        {
+            dispatchUserOrders({type: "UPDATE_USER_ORDERS",payload: updatedUserInfo.data.user.orders})
+        } 
+    }
 
     return (
         <div className="card-basic-horizontal">
@@ -45,7 +62,7 @@ function ProductOrderCard({productDetails})
                 <div className="cart-horizontal-card-btns card-button">
                     <button 
                         className="solid-primary-btn"
-                        onClick={event=>{}}
+                        onClick={removeItemFromOrders}
                     >
                         Remove item from Order
                     </button>

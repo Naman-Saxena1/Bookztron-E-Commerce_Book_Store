@@ -8,7 +8,7 @@ import { loadRazorpayScript } from "../../UtilityFunctions/loadRazorpayScript"
 function ShoppingBill()
 {
     const navigate = useNavigate()
-    const { userCart } = useCart()
+    const { userCart, dispatchUserCart } = useCart()
     const { showToast } = useToast()
     const { dispatchUserOrders }= useOrders()
     let totalDiscount = 0, totalBill = 0, finalBill = 0;
@@ -59,10 +59,8 @@ function ShoppingBill()
             "image": "https://raw.githubusercontent.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/development/public/favicon-icon.png",
             "order_id": data.id,
             "handler": async function (response){
-                console.log(response)
                 showToast("success","","Payment Successful! 😎")
                 showToast("success","","Order added to your bag!")
-                console.log(userCart)
                 let newOrderItemsArray = userCart.map(orderItem=>{
                     return {...orderItem, orderId: data.id}
                 })
@@ -75,6 +73,17 @@ function ShoppingBill()
                         headers : {'x-access-token': localStorage.getItem('token')}
                     }
                 )
+                let emptyCartResponse = await axios.patch(
+                    "https://bookztron.herokuapp.com/api/cart/empty/all",
+                    {},
+                    {
+                        headers : {'x-access-token': localStorage.getItem('token')}
+                    }
+                )
+                if(emptyCartResponse.data.status==='ok')
+                {
+                    dispatchUserCart({type: "UPDATE_USER_CART",payload: []})
+                }
                 if(ordersUpdatedResponse.data.status==='ok')
                 {
                     dispatchUserOrders({type: "UPDATE_USER_ORDERS",payload: ordersUpdatedResponse.data.user.orders})
@@ -95,7 +104,7 @@ function ShoppingBill()
                 userCart.map(product=>{
 
                     return (
-                        <div className="cart-price-container">
+                        <div key={product._id} className="cart-price-container">
                             <div className="cart-item-bookname">
                                 <p>{product.bookName}</p>
                             </div>
