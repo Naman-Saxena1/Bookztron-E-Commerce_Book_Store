@@ -1,0 +1,38 @@
+.orders-content-container
+{
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 3rem;
+}
+
+.no-orders-message-container
+{
+    margin-top: 2rem;
+    min-width: 31rem;
+}
+
+.orders-container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.orders-container .card-basic-horizontal
+{
+    cursor: default;
+    max-width: 160%;
+    width: 60rem;
+}
+
+.orders-container .card-basic-horizontal #cart-item-detail
+{
+    max-width: 34.2rem;
+}
+
+.orders-container .card-basic-horizontal:hover
+{
+    box-shadow: 0 0 1px rgb(48 48 48 / 54%);
+}

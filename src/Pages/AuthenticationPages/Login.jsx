@@ -7,7 +7,8 @@ import {
     useToast, 
     useUserLogin, 
     useWishlist,
-    useCart 
+    useCart,
+    useOrders
 } from "../../index"
 
 function Login()
@@ -16,6 +17,7 @@ function Login()
     const { showToast }             = useToast()
     const { dispatchUserWishlist }  = useWishlist()
     const { dispatchUserCart }      = useCart()
+    const { dispatchUserOrders }    = useOrders()
 
     const [userEmail    , setUserEmail]    = useState('')
     const [userPassword , setUserPassword] = useState('')
@@ -47,6 +49,7 @@ function Login()
                     {
                         dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: updatedUserInfo.data.user.wishlist})
                         dispatchUserCart({type: "UPDATE_USER_CART",payload: updatedUserInfo.data.user.cart})
+                        dispatchUserOrders({type: "UPDATE_USER_ORDERS",payload: updatedUserInfo.data.user.orders})
                     }
                 })()
             }
@@ -74,6 +77,7 @@ function Login()
                 setUserLoggedIn(true)
                 dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: res.data.wishlist})
                 dispatchUserCart({type: "UPDATE_USER_CART",payload: res.data.cart})
+                dispatchUserOrders({type: "UPDATE_USER_ORDERS",payload: res.data.orders})
                 navigate('/shop')
             }
             else
