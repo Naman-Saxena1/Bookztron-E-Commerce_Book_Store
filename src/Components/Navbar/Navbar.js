@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import './Navbar.css'
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import jwt_decode from "jwt-decode";
-import { useUserLogin, useToast, useWishlist, useCart, useOrders } from "../../index"
+import { useUserLogin, useToast, useWishlist, useCart, useOrders, useSearchBar } from "../../index"
 import { BsShopWindow, BsFillBagFill } from "react-icons/bs"
 
 function Navbar() {
@@ -12,6 +12,8 @@ function Navbar() {
     const { userOrders, dispatchUserOrders } = useOrders()
     const { setUserLoggedIn } = useUserLogin(false)
     const { showToast } = useToast()
+    const location = useLocation()
+    const { searchBarTerm, setSearchBarTerm } = useSearchBar()
 
     useEffect(()=>{
         const token=localStorage.getItem('token')
@@ -70,12 +72,19 @@ function Navbar() {
                 <Link to="/">
                     <h2 className="top-bar-brand-name">Bookztron</h2>
                 </Link>
-                <div className="search-bar">
-                    <input className="search-bar-input" placeholder="Search"/>
-                    <button id="search-bar-btn">
-                        <i className="fa fa-search" aria-hidden="true"></i>
-                    </button>
-                </div>
+                {
+                    location.pathname==="/shop" && 
+                    (
+                        <div className="search-bar">
+                            <input 
+                                className="search-bar-input" 
+                                placeholder="Search"
+                                value={searchBarTerm}
+                                onChange={event=>setSearchBarTerm(event.target.value)}
+                            />
+                        </div>
+                    )
+                }
             </div>
             <div className="right-topbar-container">
                 {

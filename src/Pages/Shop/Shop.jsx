@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import jwt_decode from "jwt-decode"
 import { useLocation } from "react-router-dom"
 import "./Shop.css"
@@ -6,7 +6,9 @@ import {
   Sidebar, 
   ProductCard,
   useWishlist,
-  useCart
+  useCart,
+  useSearchBar,
+  Pagination
 } from "../../index.js"
 import { useProductAvailable } from "../../Context/product-context"
 import axios from 'axios'
@@ -22,10 +24,13 @@ function Shop(props) {
     const { dispatchUserWishlist } = useWishlist()
     const { dispatchUserCart } = useCart()
     const { pathname } = useLocation();
+    const { searchBarTerm } = useSearchBar()
+    const [ currentPage, setCurrentPage ] = useState(1)
+    const [ productsPerPage, setProductsPerPage ] = useState(12)
   
     useEffect(() => {
       window.scrollTo(0, 0);
-    }, [pathname]);
+    }, [pathname, currentPage]);
 
     useEffect(()=>{
       
@@ -93,22 +98,47 @@ function Shop(props) {
       }   
     },[])
 
+    let searchedProducts = productsAvailableList
+    .filter(productdetails=>{
+      return (
+        productdetails.bookName.toLowerCase().includes(searchBarTerm.toLowerCase()) 
+        || productdetails.author.toLowerCase().includes(searchBarTerm.toLowerCase())
+      )
+    })
+
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct= indexOfLastProduct - productsPerPage;
+    let currentSearchedProducts = searchedProducts.slice(indexOfFirstProduct, indexOfLastProduct)
+    let currentProductsAvailableList = productsAvailableList.slice(indexOfFirstProduct, indexOfLastProduct)
+
     return (
         <div>
             <div className='shop-container'>
                 <Sidebar/>
                 <div className='products-container'>
-                    <h2>Showing {productsAvailableList.length} products</h2>
+                    <h2>Showing {searchBarTerm === ""?productsAvailableList.length:searchedProducts.length} products</h2>
                     <div className="products-card-grid">
                         {
                             productsAvailableList && 
                             (
-                                productsAvailableList.map(productdetails => (
-                                    <ProductCard key={productdetails._id} productdetails={productdetails} />
+                              searchBarTerm === "" ?
+                              (
+                                currentProductsAvailableList.map(productdetails => (
+                                  <ProductCard key={productdetails._id} productdetails={productdetails} />
                                 ))
+                              ) : (
+                                currentSearchedProducts.map(productdetails => (
+                                  <ProductCard key={productdetails._id} productdetails={productdetails} />
+                                ))
+                              )
                             )
                         }
                     </div>
+                    <Pagination 
+                      productsPerPage={productsPerPage} 
+                      totalProducts={searchBarTerm === ""?productsAvailableList.length:searchedProducts.length}
+                      paginate={setCurrentPage}
+                    />
                 </div>
             </div>
         </div>

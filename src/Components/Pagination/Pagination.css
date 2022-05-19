@@ -1,0 +1,24 @@
+.pagination
+{
+    list-style: none;
+    padding: 0 4rem 7rem 4rem;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination li
+{
+    border: 1px solid var(--dull-grey);
+}
+
+.active-page-li
+{
+    color: var(--pure-white);
+    background-color: var(--sky-blue)
+}
+
+.page-number
+{
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
