@@ -1,4 +1,4 @@
-# This is Full Stack E-Commerce Project using MERN stack
+# Full Stack E-Commerce Project using MERN stack
 
 Live Link - [Bookztron](https://bookztron-dev-branch.netlify.app/)
 
@@ -46,6 +46,10 @@ You may also see any lint errors in the console.
 7. Single Product Page
 8. Order Summary of the ordered items
 9. Custom Toast Component with 4 types - Success, Error, Warning and Information
+10. Razorpay payment Integration
+11. Orders page
+12. Search bar to search books by Book name and Author name
+13. Pagination 
 
 ## You are welcome to contribute to this project 
 1. Create a personal fork of the project on Github.
@@ -85,3 +89,9 @@ You may also see any lint errors in the console.
 
 ### Cart Page
 ![](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-CartPage-1.PNG)
+
+### Razorpay integration
+![](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-Razorpay_Payment_Integration.PNG)
+
+### Orders Page
+![](https://github.com/Naman-Saxena1/Bookztron-E-Commerce_Book_Store/blob/development/src/Assets/Screenshots/Bookztron-OrdersPage-1.PNG)
