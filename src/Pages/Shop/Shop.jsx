@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import jwt_decode from "jwt-decode"
 import { useLocation } from "react-router-dom"
 import "./Shop.css"
@@ -7,7 +7,8 @@ import {
   ProductCard,
   useWishlist,
   useCart,
-  useSearchBar
+  useSearchBar,
+  Pagination
 } from "../../index.js"
 import { useProductAvailable } from "../../Context/product-context"
 import axios from 'axios'
@@ -24,10 +25,12 @@ function Shop(props) {
     const { dispatchUserCart } = useCart()
     const { pathname } = useLocation();
     const { searchBarTerm } = useSearchBar()
+    const [ currentPage, setCurrentPage ] = useState(1)
+    const [ productsPerPage, setProductsPerPage ] = useState(12)
   
     useEffect(() => {
       window.scrollTo(0, 0);
-    }, [pathname]);
+    }, [pathname, currentPage]);
 
     useEffect(()=>{
       
@@ -103,6 +106,11 @@ function Shop(props) {
       )
     })
 
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct= indexOfLastProduct - productsPerPage;
+    let currentSearchedProducts = searchedProducts.slice(indexOfFirstProduct, indexOfLastProduct)
+    let currentProductsAvailableList = productsAvailableList.slice(indexOfFirstProduct, indexOfLastProduct)
+
     return (
         <div>
             <div className='shop-container'>
@@ -115,17 +123,22 @@ function Shop(props) {
                             (
                               searchBarTerm === "" ?
                               (
-                                productsAvailableList.map(productdetails => (
+                                currentProductsAvailableList.map(productdetails => (
                                   <ProductCard key={productdetails._id} productdetails={productdetails} />
                                 ))
                               ) : (
-                                searchedProducts.map(productdetails => (
+                                currentSearchedProducts.map(productdetails => (
                                   <ProductCard key={productdetails._id} productdetails={productdetails} />
                                 ))
                               )
                             )
                         }
                     </div>
+                    <Pagination 
+                      productsPerPage={productsPerPage} 
+                      totalProducts={productsAvailableList.length}
+                      paginate={setCurrentPage}
+                    />
                 </div>
             </div>
         </div>

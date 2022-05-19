@@ -7,7 +7,7 @@
 {
     width: 100%;
     display: grid;
-    padding: 2rem 12rem 12rem 12rem;
+    padding: 2rem 12rem 5rem 12rem;
     flex-grow: 1;
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, 24rem);

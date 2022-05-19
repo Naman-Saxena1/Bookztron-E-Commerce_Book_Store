@@ -32,6 +32,7 @@ export { Toast } from './Components/Toast/Toast'
 export { ShoppingBill } from './Components/ShoppingBill/ShoppingBill'
 export { WishlistProductCard } from './Components/WishlistProductCard/WishlistProductCard'
 export { ProductOrderCard } from './Components/ProductOrderCard/ProductOrderCard'
+export { Pagination } from './Components/Pagination/Pagination'
 
 export { Home } from "./Pages/Home/Home"
 export { Login } from "./Pages/AuthenticationPages/Login"
