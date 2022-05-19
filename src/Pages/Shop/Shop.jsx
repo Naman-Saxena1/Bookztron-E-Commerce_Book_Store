@@ -136,7 +136,7 @@ function Shop(props) {
                     </div>
                     <Pagination 
                       productsPerPage={productsPerPage} 
-                      totalProducts={productsAvailableList.length}
+                      totalProducts={searchBarTerm === ""?productsAvailableList.length:searchedProducts.length}
                       paginate={setCurrentPage}
                     />
                 </div>
