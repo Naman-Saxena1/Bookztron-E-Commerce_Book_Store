@@ -6,7 +6,8 @@ import {
   Sidebar, 
   ProductCard,
   useWishlist,
-  useCart
+  useCart,
+  useSearchBar
 } from "../../index.js"
 import { useProductAvailable } from "../../Context/product-context"
 import axios from 'axios'
@@ -22,6 +23,7 @@ function Shop(props) {
     const { dispatchUserWishlist } = useWishlist()
     const { dispatchUserCart } = useCart()
     const { pathname } = useLocation();
+    const { searchBarTerm } = useSearchBar()
   
     useEffect(() => {
       window.scrollTo(0, 0);
@@ -93,19 +95,34 @@ function Shop(props) {
       }   
     },[])
 
+    let searchedProducts = productsAvailableList
+    .filter(productdetails=>{
+      return (
+        productdetails.bookName.toLowerCase().includes(searchBarTerm.toLowerCase()) 
+        || productdetails.author.toLowerCase().includes(searchBarTerm.toLowerCase())
+      )
+    })
+
     return (
         <div>
             <div className='shop-container'>
                 <Sidebar/>
                 <div className='products-container'>
-                    <h2>Showing {productsAvailableList.length} products</h2>
+                    <h2>Showing {searchBarTerm === ""?productsAvailableList.length:searchedProducts.length} products</h2>
                     <div className="products-card-grid">
                         {
                             productsAvailableList && 
                             (
+                              searchBarTerm === "" ?
+                              (
                                 productsAvailableList.map(productdetails => (
-                                    <ProductCard key={productdetails._id} productdetails={productdetails} />
+                                  <ProductCard key={productdetails._id} productdetails={productdetails} />
                                 ))
+                              ) : (
+                                searchedProducts.map(productdetails => (
+                                  <ProductCard key={productdetails._id} productdetails={productdetails} />
+                                ))
+                              )
                             )
                         }
                     </div>

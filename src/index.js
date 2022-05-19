@@ -9,6 +9,7 @@ import { UserLoginContextProvider } from './Context/user-login-context'
 import { WishlistContextProvider } from './Context/wishlist-context';
 import { CartContextProvider } from './Context/cart-context';
 import { OrdersContextProvider } from './Context/orders-context'
+import { SearchBarContextProvider } from './Context/search-bar-context'
 
 export { useProductAvailable } from "./Context/product-context"
 export { useGenre } from "./Context/genre-context"
@@ -18,6 +19,7 @@ export { useUserLogin } from './Context/user-login-context'
 export { useWishlist } from './Context/wishlist-context';
 export { useCart } from "./Context/cart-context"
 export { useOrders } from "./Context/orders-context"
+export { useSearchBar } from "./Context/search-bar-context"
 
 export { Navbar } from "./Components/Navbar/Navbar"
 export { GenreCard } from './Components/GenreCards/GenreCard'
@@ -50,7 +52,9 @@ ReactDOM.render(
               <GenreProvider>
                 <ProductsProvider>
                   <OrdersContextProvider>
-                    <App/>
+                    <SearchBarContextProvider>
+                      <App/>
+                    </SearchBarContextProvider>
                   </OrdersContextProvider>
                 </ProductsProvider>
               </GenreProvider>
