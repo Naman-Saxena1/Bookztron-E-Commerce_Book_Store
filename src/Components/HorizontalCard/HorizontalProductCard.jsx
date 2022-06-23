@@ -4,6 +4,7 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom"
 import { useToast, useCart, useWishlist } from "../../index"
+import { useEffect } from "react";
 
 function HorizontalProductCard({productDetails})
 {
@@ -27,35 +28,38 @@ function HorizontalProductCard({productDetails})
     } = productDetails;
     const productdetails = productDetails;
 
-    const [productQuantity, setProductQuantity] = useState(quantity)
+    const [productQuantity, setProductQuantity] = useState(Number(quantity))
 
-    async function onQuantityChange(event)
-    {
-        setProductQuantity(event.target.value)
-        let newQuantity = event.target.value
-        let quantityUpdateResponse = await axios.patch(
-            `https://bookztron.herokuapp.com/api/cart/${_id}`,
-            {
-                newQuantity
-            },
-            {
-                headers:
+    useEffect(()=>{
+        (async function onQuantityChange()
+        {
+            
+            let newQuantity = productQuantity
+            let quantityUpdateResponse = await axios.patch(
+                `https://bookztron.herokuapp.com/api/cart/${_id}`,
                 {
-                    'x-access-token': localStorage.getItem('token'),
+                    newQuantity
+                },
+                {
+                    headers:
+                    {
+                        'x-access-token': localStorage.getItem('token'),
+                    }
                 }
-            }
-        )
+            )
 
-        if(quantityUpdateResponse.data.status==="ok")
-        {
-            dispatchUserCart({type: "UPDATE_USER_CART",payload: quantityUpdateResponse.data.user.cart})
-            showToast("success","","Item quantity successfully updated!")
-        }
-        else
-        {
-            showToast("error","","Something went wrong!")
-        }
-    }
+            if(quantityUpdateResponse.data.status==="ok")
+            {
+                dispatchUserCart({type: "UPDATE_USER_CART",payload: quantityUpdateResponse.data.user.cart})
+                showToast("success","","Item quantity successfully updated!")
+            }
+            else
+            {
+                showToast("error","","Something went wrong!")
+            }
+        })()
+    },[productQuantity])
+    
 
     async function removeItemFromCart(event)
     {
@@ -154,14 +158,22 @@ function HorizontalProductCard({productDetails})
     
                 <div className="item-cart-quantity">
                     <p className="cart-quantity-para">Quantity : &nbsp;&nbsp;</p>
-                    <div>
+                    <div className="quantity-manage-container">
+                        <div className="quantity-change" onClick={()=>{
+                            setProductQuantity(prevQuantity=>Number(prevQuantity)-1);
+                        }}>-</div>
                         <input 
                             className="cart-item-quantity-input" 
                             value={productQuantity}
-                            onChange={(event)=>onQuantityChange(event)}
+                            onChange={(event)=>{
+                                setProductQuantity(event.target.value);
+                            }}
                             type="text" 
                             maxLength="3" 
                             autoComplete="off"/>
+                        <div className="quantity-change" onClick={()=>{
+                            setProductQuantity(prevQuantity=>Number(prevQuantity)+1);
+                        }}>+</div>
                     </div>
                 </div>
     
