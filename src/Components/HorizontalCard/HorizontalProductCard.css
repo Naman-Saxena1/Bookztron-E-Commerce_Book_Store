@@ -18,3 +18,20 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.quantity-manage-container
+{
+    display: flex;
+    align-items: center;
+}
+
+.quantity-change
+{
+    width: 2.2rem;
+    height: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid var(--dull-grey);
+}
