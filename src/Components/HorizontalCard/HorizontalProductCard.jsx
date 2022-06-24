@@ -51,7 +51,6 @@ function HorizontalProductCard({productDetails})
             if(quantityUpdateResponse.data.status==="ok")
             {
                 dispatchUserCart({type: "UPDATE_USER_CART",payload: quantityUpdateResponse.data.user.cart})
-                showToast("success","","Item quantity successfully updated!")
             }
             else
             {
