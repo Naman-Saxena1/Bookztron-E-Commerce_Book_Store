@@ -19,7 +19,7 @@ function Signup()
     {
         event.preventDefault();
         axios.post(
-            "https://bookztron.herokuapp.com/api/signup",
+            "https://bookztron-server.vercel.app/api/signup",
             {
                 newUserName: `${newUserName}`,
                 newUserEmail: `${newUserEmail}`,

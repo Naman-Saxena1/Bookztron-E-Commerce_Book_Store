@@ -28,7 +28,7 @@ function ProductOrderCard({productDetails})
 
     const removeItemFromOrders = async () => {
         let updatedUserInfo = await axios.patch(
-            `https://bookztron.herokuapp.com/api/orders/${_id}`,
+            `https://bookztron-server.vercel.app/api/orders/${_id}`,
             {
                 orderId
             },

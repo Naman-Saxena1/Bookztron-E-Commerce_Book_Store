@@ -48,7 +48,7 @@ function Orders()
                     (async function getUpdatedWishlistAndCart()
                     {
                         let updatedUserInfo = await axios.get(
-                        "https://bookztron.herokuapp.com/api/user",
+                        "https://bookztron-server.vercel.app/api/user",
                         {
                             headers:
                             {
