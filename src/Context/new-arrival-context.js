@@ -10,7 +10,7 @@ let NewArrivalsProvider = ({children}) =>
     useEffect(() => {
         try {
           (async () => {
-              const productsAvailableData = await axios.get('https://bookztron.herokuapp.com/api/home/newarrivals')
+              const productsAvailableData = await axios.get('https://bookztron-server.vercel.app/api/home/newarrivals')
               setNewArrivalsProductList([...productsAvailableData.data.newArrivalList])
           }) ()
         }

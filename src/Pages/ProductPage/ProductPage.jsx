@@ -46,7 +46,7 @@ function ProductPage()
                 (async function getUpdatedWishlistAndCart()
                 {
                     let updatedUserInfo = await axios.get(
-                    "https://bookztron.herokuapp.com/api/user",
+                    "https://bookztron-server.vercel.app/api/user",
                     {
                         headers:
                         {
@@ -81,7 +81,7 @@ function ProductPage()
             else
             {
                 let wishlistUpdateResponse = await axios.patch(
-                    "https://bookztron.herokuapp.com/api/wishlist",
+                    "https://bookztron-server.vercel.app/api/wishlist",
                     {
                         productdetails
                     },
@@ -123,7 +123,7 @@ function ProductPage()
             else
             {
                 let cartUpdateResponse = await axios.patch(
-                    "https://bookztron.herokuapp.com/api/cart",
+                    "https://bookztron-server.vercel.app/api/cart",
                     {
                         productdetails
                     },

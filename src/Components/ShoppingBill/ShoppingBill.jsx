@@ -42,7 +42,7 @@ function ShoppingBill()
         let finalBillAmount = (finalBill*100).toString()
 
         const dataResponse = await axios.post(
-            "https://bookztron.herokuapp.com/api/razorpay",
+            "https://bookztron-server.vercel.app/api/razorpay",
             {
                 finalBillAmount
             }
@@ -65,7 +65,7 @@ function ShoppingBill()
                     return {...orderItem, orderId: data.id}
                 })
                 let ordersUpdatedResponse = await axios.post(
-                    "https://bookztron.herokuapp.com/api/orders",
+                    "https://bookztron-server.vercel.app/api/orders",
                     {
                         newOrderItemsArray
                     },
@@ -74,7 +74,7 @@ function ShoppingBill()
                     }
                 )
                 let emptyCartResponse = await axios.patch(
-                    "https://bookztron.herokuapp.com/api/cart/empty/all",
+                    "https://bookztron-server.vercel.app/api/cart/empty/all",
                     {},
                     {
                         headers : {'x-access-token': localStorage.getItem('token')}

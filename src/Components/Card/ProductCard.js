@@ -64,7 +64,7 @@ export default function ProductCard({ productdetails })
                 else
                 {
                     let wishlistUpdateResponse = await axios.patch(
-                        "https://bookztron.herokuapp.com/api/wishlist",
+                        "https://bookztron-server.vercel.app/api/wishlist",
                         {
                             productdetails
                         },
@@ -108,7 +108,7 @@ export default function ProductCard({ productdetails })
                 else
                 {
                     let wishlistUpdateResponse = await axios.delete(
-                        `https://bookztron.herokuapp.com/api/wishlist/${productdetails._id}`,
+                        `https://bookztron-server.vercel.app/api/wishlist/${productdetails._id}`,
                         {
                             headers:
                             {

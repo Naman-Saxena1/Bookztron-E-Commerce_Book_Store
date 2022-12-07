@@ -36,7 +36,7 @@ function HorizontalProductCard({productDetails})
             
             let newQuantity = productQuantity
             let quantityUpdateResponse = await axios.patch(
-                `https://bookztron.herokuapp.com/api/cart/${_id}`,
+                `https://bookztron-server.vercel.app/api/cart/${_id}`,
                 {
                     newQuantity
                 },
@@ -77,7 +77,7 @@ function HorizontalProductCard({productDetails})
             else
             {
                 let cartUpdateResponse = await axios.delete(
-                    `https://bookztron.herokuapp.com/api/cart/${productDetails._id}`,
+                    `https://bookztron-server.vercel.app/api/cart/${productDetails._id}`,
                     {
                         headers:
                         {
@@ -118,7 +118,7 @@ function HorizontalProductCard({productDetails})
             else
             {
                 const wishlistUpdateResponse = await axios.patch(
-                    "https://bookztron.herokuapp.com/api/wishlist",
+                    "https://bookztron-server.vercel.app/api/wishlist",
                     {
                         productdetails
                     },

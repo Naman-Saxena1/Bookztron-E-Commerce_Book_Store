@@ -68,7 +68,7 @@ export default function WishlistProductCard({ productdetails })
                 else
                 {
                     let wishlistUpdateResponse = await axios.patch(
-                        "https://bookztron.herokuapp.com/api/wishlist",
+                        "https://bookztron-server.vercel.app/api/wishlist",
                         {
                             productdetails
                         },
@@ -112,7 +112,7 @@ export default function WishlistProductCard({ productdetails })
                 else
                 {
                     let wishlistUpdateResponse = await axios.delete(
-                        `https://bookztron.herokuapp.com/api/wishlist/${productdetails._id}`,
+                        `https://bookztron-server.vercel.app/api/wishlist/${productdetails._id}`,
                         {
                             headers:
                             {
@@ -156,7 +156,7 @@ export default function WishlistProductCard({ productdetails })
             else
             {
                 let cartUpdateResponse = await axios.patch(
-                    "https://bookztron.herokuapp.com/api/cart",
+                    "https://bookztron-server.vercel.app/api/cart",
                     {
                         productdetails
                     },
