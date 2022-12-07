@@ -20,7 +20,7 @@ You may also see any lint errors in the console.
 3. JavaScript
 4. React
 
-- Node JS, Express JS and MongoDb is used for Backend server which is deployed on Heroku.
+- Node JS, Express JS and MongoDb is used for Backend server which is deployed on Vercel.
 
 ## Features:
 1. User Authentication (Signup, Login and Logout)
