@@ -1,5 +1,7 @@
 import React,{ useEffect } from 'react'
 import { Link } from "react-router-dom"
+import { Carousel } from 'react-responsive-3d-carousel';
+import 'react-responsive-3d-carousel/dist/styles.css';
 import axios from "axios"
 import { useLocation } from "react-router-dom"
 import LibraryIllustration from "../..//Assets/Images/Library_Illustration_1.jpg"
@@ -10,13 +12,14 @@ import {
   NewArrivals,
   Footer,
   useWishlist,
-  useCart 
+  useCart,
+  ProductCard // Added ProductCard import
 } from "../../index.js"
 import { useProductAvailable } from "../../Context/product-context"
 import { useGenre } from "../../Context/genre-context"
 
 function Home() {
-  const { dispatchProductFilterOptions } = useProductAvailable()
+  const { productsAvailableList, dispatchProductFilterOptions } = useProductAvailable(); // Added productsAvailableList
   const { dispatchUserWishlist } = useWishlist()
   const { dispatchUserCart } = useCart()
   const {
@@ -29,6 +32,15 @@ function Home() {
   } = useGenre()
 
   const { pathname } = useLocation();
+
+  // Prepare actual carousel items
+  let actualCarouselItems = [];
+  if (productsAvailableList && productsAvailableList.length > 0) {
+    const selectedBooks = productsAvailableList.slice(0, Math.min(productsAvailableList.length, 12));
+    actualCarouselItems = selectedBooks.map(product => (
+      <ProductCard key={product._id} productdetails={product} />
+    ));
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -115,6 +127,26 @@ function Home() {
 
       <h1 className='homepage-headings'>New Arrivals</h1>
       <NewArrivals/>
+
+      <h1 className='homepage-headings'>Featured Books</h1>
+      <div className="featured-books-carousel-container"> {/* Added class for styling */}
+        {actualCarouselItems.length > 0 ? (
+          <Carousel 
+            items={actualCarouselItems} 
+            // width="300px" // Removed fixed width, will handle with CSS
+            height="auto" // Changed to auto or a more flexible value like 550px if needed
+            showArrows={true} 
+            showStatus={false} 
+            showThumbs={false} 
+            infiniteLoop={true}
+            autoPlay={true}
+            interval={5000}
+          />
+        ) : (
+          <p>Loading featured books...</p>
+        )}
+      </div>
+      
       <Footer/>
 
     </div>

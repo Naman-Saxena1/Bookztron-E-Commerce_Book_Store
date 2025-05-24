@@ -1,5 +1,6 @@
 import { useEffect, useReducer, useContext, createContext} from 'react'
 import axios from 'axios'
+import newlyAddedBooks from '../Assets/Data/newly_added_books.json';
 
 const ProductsContext = createContext()
 
@@ -275,16 +276,32 @@ let ProductsProvider = ({children}) =>
     const [ productFilterOptions, dispatchProductFilterOptions ] = useReducer(updateProductFilters,filterOptionsObject)
 
     useEffect(() => {
-      try {
-        (async () => {
-            const productsAvailableData = await axios.get('https://bookztron-server.vercel.app/api/home/products')
-            productList = [...productsAvailableData.data.productsList]
-        }) ()
-      }
-      catch(error) {
-        console.log("Error : ", error)
-      }
-    },[])
+      (async () => {
+        try {
+          const productsAvailableData = await axios.get('https://bookztron-server.vercel.app/api/home/products');
+          let fetchedProducts = productsAvailableData.data.productsList || [];
+          // Combine fetched products with newly added books
+          productList = [...fetchedProducts, ...newlyAddedBooks];
+          // Dispatch an action to update the context state with the combined list.
+          // Ensure productsAvailableList is updated so other components can use the new data.
+          // The existing logic might already handle this if productList is used by the reducer,
+          // but an explicit dispatch might be needed if productsAvailableList is not immediately reflecting this change.
+          // For instance, one might call:
+          // dispatchSortedProductsList({ type: "ADD_ITEMS_TO_PRODUCTS_AVAILABLE_LIST", payload: productList });
+          // However, looking at the reducer, simply updating productList and then triggering a filter update
+          // should be sufficient. Let's ensure the initial list used by the reducer reflects this combined data.
+          // The most straightforward way is to update productList and then immediately dispatch
+          // an action that re-evaluates the filters against this new productList.
+          dispatchSortedProductsList({ type: "UPDATE_LIST_AS_PER_FILTERS", payload: productFilterOptions });
+
+        } catch (error) {
+          console.log("Error fetching or combining products: ", error);
+          // If fetching fails, still try to load newly added books
+          productList = [...newlyAddedBooks];
+          dispatchSortedProductsList({ type: "UPDATE_LIST_AS_PER_FILTERS", payload: productFilterOptions });
+        }
+      })();
+    }, [dispatchSortedProductsList, productFilterOptions]); 
 
     return (
         <ProductsContext.Provider value={{ productsAvailableList, dispatchSortedProductsList, productFilterOptions, dispatchProductFilterOptions}}>
